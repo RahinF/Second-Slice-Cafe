@@ -33,12 +33,30 @@ h2 {
 
 /* Nav */
 nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     position: fixed;
     height: 100%;
     width: 380px;
     background-color: #FFF;
     font-family: 'Quicksand', sans-serif;
     box-shadow: 4px 0px 14px -5px #0000001f;
+}
+
+.logo {
+    align-self: center;
+}
+
+.nav-social-links {
+    align-self: center;
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav p {
+    align-self: center;
 }
 
 nav ul {
@@ -164,4 +182,12 @@ section {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+}
+
+
+
+
+/* test */
+section h1 {
+    margin: 0;
 }
