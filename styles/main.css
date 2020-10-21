@@ -1,0 +1,167 @@
+/* 
+Colours
+#FFF    - White
+#F1F8F5 - Light Green
+#A5D8C2 - Green
+#84AC9B - Dark Green
+#1C1F33 - Dark Blue
+
+
+Fonts
+font-family: 'Quicksand', sans-serif; - Nav/Headings
+font-family: 'Montserrat', sans-serif; - Text
+*/
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #F1F8F5;
+    margin: 0;
+}
+
+h1,
+h2 {
+    font-family: 'Quicksand', sans-serif;
+}
+
+
+/* Nav */
+nav {
+    position: fixed;
+    height: 100%;
+    width: 380px;
+    background-color: #FFF;
+    font-family: 'Quicksand', sans-serif;
+    box-shadow: 4px 0px 14px -5px #0000001f;
+}
+
+nav ul {
+    padding: 0;
+}
+
+nav li {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* Nav Active */
+nav li.nav-active::after {
+    content: "";
+    display: block;
+    height: 50px;
+    width: 4px;
+    align-self: center;
+    border-radius: 4px 0 0 4px;
+    background-color: #A5D8C2;
+}
+
+.nav-active>a {
+    font-weight: normal;
+    color: #A5D8C2;
+}
+
+nav li a {
+    width: 90%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    display: flex;
+    justify-content: center;
+    color: #1C1F33;
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: lighter;
+    border-bottom: 1px solid #E8E8E8;
+}
+
+
+nav li:last-child>a {
+    border: none;
+}
+
+nav li a:hover {
+    font-weight: normal;
+    color: #84AC9B;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+main {
+    margin-left: 380px;
+}
+
+section {
+    min-height: 100vh;
+}
+
+#home-section {
+    background-image: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    /* test */
+    background: #334433;
+}
+
+#call-to-action {
+    color: #FFF;
+    border: .5rem solid #FFF;
+    border-radius: 1rem;
+    background: none;
+    font-size: 2rem;
+
+}
+
+
+.circle {
+    position: relative;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: #A5D8C2;
+    font-size: 1.5rem;
+    box-shadow: 4px 0px 14px -5px #0000001f;
+    cursor: pointer;
+}
+
+.circle:hover {
+    background-color: #84AC9B;
+}
+
+.circle a {
+    color: #FFF;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
