@@ -1,23 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
+
+
+
 <head>
+    <!-- Meta Information -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title shown in the browser tab -->
     <title>Second Slice Café</title>
+
+    <!-- CSS Styling -->
     <link rel="stylesheet" href="styles/main.css">
+
+    <!-- JavaScript -->
+    <script src="scripts/script.js" defer></script>
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 
-
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
 </head>
+
+
+
 <body>
 
+    <!-- Side Navigation -->
     <nav>
+
+        <!-- Logo -->
         <img class="logo" src="images/second-slice-logo.png" height="250" width="250" alt="Second Slice Café Logo">
+
+        <!-- Links -->
         <ul id="nav-links">
             <li class="nav-active"><a href="#home-section">Home</a></li>
             <li><a href="#about-section">About</a></li>
@@ -25,11 +44,15 @@
             <li><a href="#contact-section">Contact</a></li>
         </ul>
 
+        <!-- Social Media Links -->
         <div class="nav-social-links">
-            <div class="circle"><a href="#"><i class="fab fa-facebook-f"></i></a></div>
-            <div class="circle"><a href="#"><i class="fab fa-instagram"></i></a></div>
+            <a href="https://www.facebook.com" target="_blank" class="circle" title="Like us of Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com" target="_blank" class="circle" title="Follow us of Instagram"><i class="fab fa-instagram"></i></a>
         </div>
+
+        <!-- Opening Hours -->
         <p>Open: Monday - Sunday  7am - 4pm</p>
+        
     </nav>
 
 <main>
@@ -144,7 +167,7 @@
     <section id="menu-section">
         <h1>Menu</h1>
         
-        <ul>
+        <ul id="menu-tabs">
             <li>Beverages</li>
             <li>Snacks</li>
             <li>Sandwiches</li>
@@ -152,39 +175,37 @@
 
         <div>
             <ul>
-                <li>item 1</li>
-                <li>item 2</li>
-                <li>item 3</li>
-                <li>item 4</li>
-                <li>item 5</li>
-                <li>item 6</li>
-                <li>item 7</li>
-                <li>item 8</li>
-                <li>item 9</li>
+                <li><span>Item 1</span><span>1.00</span></li>
+                <li><span>Item 2</span><span>2.00</span></li>
+                <li><span>Item 3</span><span>3.00</span></li>
+                <li><span>Item 4</span><span>4.00</span></li>
+                <li><span>Item 5</span><span>5.00</span></li>
+                <li><span>Item 6</span><span>6.00</span></li>
+                <li><span>Item 7</span><span>7.00</span></li>
+                <li><span>Item 8</span><span>8.00</span></li>
+                <li><span>Item 9</span><span>9.00</span></li>
             </ul>
-
             <ul>
-                <li>item 1</li>
-                <li>item 2</li>
-                <li>item 3</li>
-                <li>item 4</li>
-                <li>item 5</li>
-                <li>item 6</li>
-                <li>item 7</li>
-                <li>item 8</li>
-                <li>item 9</li>
+                <li><span>Item 1</span><span>1.00</span></li>
+                <li><span>Item 2</span><span>2.00</span></li>
+                <li><span>Item 3</span><span>3.00</span></li>
+                <li><span>Item 4</span><span>4.00</span></li>
+                <li><span>Item 5</span><span>5.00</span></li>
+                <li><span>Item 6</span><span>6.00</span></li>
+                <li><span>Item 7</span><span>7.00</span></li>
+                <li><span>Item 8</span><span>8.00</span></li>
+                <li><span>Item 9</span><span>9.00</span></li>
             </ul>
-
             <ul>
-                <li>item 1</li>
-                <li>item 2</li>
-                <li>item 3</li>
-                <li>item 4</li>
-                <li>item 5</li>
-                <li>item 6</li>
-                <li>item 7</li>
-                <li>item 8</li>
-                <li>item 9</li>
+                <li><span>Item 1</span><span>1.00</span></li>
+                <li><span>Item 2</span><span>2.00</span></li>
+                <li><span>Item 3</span><span>3.00</span></li>
+                <li><span>Item 4</span><span>4.00</span></li>
+                <li><span>Item 5</span><span>5.00</span></li>
+                <li><span>Item 6</span><span>6.00</span></li>
+                <li><span>Item 7</span><span>7.00</span></li>
+                <li><span>Item 8</span><span>8.00</span></li>
+                <li><span>Item 9</span><span>9.00</span></li>
             </ul>
         
         </div>
@@ -229,19 +250,19 @@
             <div>
 
                 <div>
-                    <div class="circle"><a href="#"><i class="fas fa-phone"></i></a></div>
+                    <a href="tel:12345678" class="circle" title="Give us a call"><i class="fas fa-phone"></i></a>
                     <p>12345678</p>
                 </div>
 
 
                 <div>
-                    <div class="circle"><a href="#"><i class="fab fa-facebook-f"></i></a></div>
+                    <a href="https://www.facebook.com" target="_blank" class="circle" title="Like us of Facebook"><i class="fab fa-facebook-f"></i></a>
                     <p>Facebook</p>
                 </div>
 
 
                 <div>
-                    <div class="circle"><a href="#"><i class="fab fa-instagram"></i></a></div>
+                    <a href="https://www.instagram.com" target="_blank" class="circle" title="Follow us of Instagram"><i class="fab fa-instagram"></i></a>
                     <p>Instagram</p>
                 </div>
                 
@@ -262,7 +283,5 @@
 
 
 </main>  
-
-<script src="scripts/script.js"></script>
 </body>
 </html>
