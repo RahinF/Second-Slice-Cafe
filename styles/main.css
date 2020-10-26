@@ -26,8 +26,21 @@ body {
 }
 
 h1,
-h2 {
+h2,
+nav,
+nav p {
     font-family: 'Quicksand', sans-serif;
+}
+
+p,
+#menu-section li {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
@@ -40,19 +53,11 @@ nav {
     height: 100%;
     width: 380px;
     background-color: #FFF;
-    font-family: 'Quicksand', sans-serif;
     box-shadow: 4px 0px 14px -5px #0000001f;
 }
 
 .logo {
     align-self: center;
-}
-
-.nav-social-links {
-    align-self: center;
-    width: 50%;
-    display: flex;
-    justify-content: space-around;
 }
 
 nav p {
@@ -63,7 +68,8 @@ nav ul {
     padding: 0;
 }
 
-nav li {
+nav li,
+#menu-section li {
     list-style: none;
     display: flex;
     justify-content: space-between;
@@ -122,6 +128,19 @@ nav li a:hover {
 
 
 
+.contact-links {
+    align-self: center;
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.contact-links>div {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
 
 
 
@@ -141,24 +160,61 @@ section {
 }
 
 #home-section {
-    background-image: none;
+    background-image: url("../images/banner-bg.jpg");
+    background-size: cover;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
-    /* test */
-    background: #334433;
+    color: #FFF;
 }
 
 #call-to-action {
-    color: #FFF;
-    border: .5rem solid #FFF;
-    border-radius: 1rem;
+    cursor: pointer;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: bold;
     background: none;
-    font-size: 2rem;
+    border: 0.3em solid #FFF;
+    border-radius: 2rem;
+    color: #FFF;
+    padding: 1rem 2rem;
+    outline: none;
 
+    /* Smooth grow transition */
+    transition: all .2s ease-in-out;
 }
+
+#call-to-action:hover {
+    background: #FFF;
+    color: #000;
+    transform: scale(1.1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 .circle {
@@ -170,10 +226,12 @@ section {
     font-size: 1.5rem;
     box-shadow: 4px 0px 14px -5px #0000001f;
     cursor: pointer;
+    transition: all .2s ease-in-out;
 }
 
 .circle:hover {
     background-color: #84AC9B;
+    transform: scale(1.3);
 }
 
 .circle i {
@@ -190,4 +248,114 @@ section {
 /* test */
 section h1 {
     margin: 0;
+}
+
+
+
+
+
+
+
+
+/* Menu Section */
+
+#menu-section li {
+    border-bottom: 1px solid #0000001f;
+}
+
+
+
+
+
+
+
+
+/* Contact Section */
+#location {
+    display: flex;
+}
+
+#opening-hours h2 {
+    font-size: clamp(1rem, 10vw, 2rem);
+}
+
+#opening-hours::before,
+#opening-hours::after {
+    content: "";
+    display: block;
+    height: 1px;
+    background-color: #E8E8E8;
+}
+
+
+
+#contact-section .container {
+    display: grid;
+    grid-template-rows: max-content 1fr 1fr 1fr;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Media queries */
+
+
+/* Mobile */
+@media (min-width: 360px) {
+    .container {
+        max-width: 540px;
+    }
+}
+
+
+
+
+
+
+
+/* Tablet */
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+
+}
+
+
+
+
+
+
+
+/* Desktop */
+@media (min-width: 1366px) {
+    .container {
+        max-width: 1140px;
+    }
 }
