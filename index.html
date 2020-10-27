@@ -5,14 +5,14 @@
 
 
 <head>
-    <!-- Meta Information -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Title shown in the browser tab -->
+
     <title>Second Slice Café</title>
 
-    <!-- CSS Styling -->
+    <!-- CSS -->
     <link rel="stylesheet" href="styles/main.css">
 
     <!-- JavaScript -->
@@ -30,7 +30,7 @@
 
 <body>
 
-    <!-- Side Navigation -->
+
     <nav>
 
         <!-- Logo -->
@@ -89,60 +89,52 @@
 
     <section id="about-section">
 
-        <!-- Family Owned -->
-        <div>
-            <img src="" alt="">
-            <div>
-                <h2>Family Owned</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, animi.</p>
+
+
+
+        <div class="expanded-image">
+
+            <div class="container">
+            <!-- Expanded image -->
+                <img id="expandedImg" src="images/family-owned.jpg" alt="Family Owned" height="600" width="1200">
             </div>
+
+            <!-- Image text -->
+            <div id="image-text">
+                <h2 id="image-text-title"></h2>
+                <p id="image-text-info"></p>
+            </div>
+
         </div>
 
 
+        
 
-        <!-- Zero Waste -->
-        <div>
-            <img src="" alt="">
-            <div>
-                <h2>Zero Waste</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, animi.</p>
+            <!-- Image tabs -->
+        <div id="image-tabs" class="container">
+
+            <!-- Family Owned -->
+            <div class="image-tab">
+                <img src="images/family-owned.jpg" alt="Family Owned" height="200" width="350">
+                <h3 class="tab-title">Family Owned</h3>
+                <p class="tab-info">Lorem </p>
             </div>
+            
+            <!-- Zero Waste -->
+            <div class="image-tab">
+                <img src="images/zero-waste.jpg" alt="Zero Waste" height="200" width="350">
+                <h3 class="tab-title">Zero Waste</h3>
+                <p class="tab-info">Lorem ipsum dolor</p>
+            </div>
+
+            <!-- Organic Ingredients -->
+            <div class="image-tab">
+                <img src="images/organic-ingredients.jpg" alt="Organic Ingredients" height="200" width="350">
+                <h3 class="tab-title">Organic Ingredients</h3>
+                <p class="tab-info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, animi.</p>
+            </div>
+
         </div>
-
-
-
-        <!-- Organic Ingredients -->
-        <div>
-            <img src="" alt="">
-            <div>
-                <h2>Organic Ingredients</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, animi.</p>
-            </div>
-        </div>
-
-
-        <div>
-            <div>
-                <img src="" alt="">
-                <h3>Family Owned</h3>
-            </div>
-            <div>
-                <img src="" alt="">
-                <h3>Zero Waste</h3>
-            </div>
-            <div>
-                <img src="" alt="">
-                <h3>Organic Ingredients</h3>
-            </div>
- 
-        </div>
-
-
-
-
-
-
-
 
 
     </section>

@@ -27,3 +27,37 @@ window.onscroll = function() {
 document.getElementById("call-to-action").addEventListener("click", function(){
     document.getElementById("about-section").scrollIntoView(true);
 });
+
+
+
+
+
+// Image tabs
+// image and text change when a tab is clicked
+
+// add action lister to tabs
+let image_tabs = document.getElementById("image-tabs").getElementsByTagName("img");
+for (let index = 0; index < image_tabs.length; index++) {
+    image_tabs[index].addEventListener("click", change_image_tab);
+    
+}
+
+
+// set the inital image info to first tab
+let image_text_title = document.getElementById("image-text-title");
+let image_text_info = document.getElementById("image-text-info");
+
+image_text_title.innerText = document.getElementsByClassName("tab-title")[0].innerText;
+image_text_info.innerText = document.getElementsByClassName("tab-info")[0].innerHTML;
+
+
+// when clicked changes image src, alt and text.
+function change_image_tab(){
+    let expandImg = document.getElementById("expandedImg");
+
+    expandImg.src = this.src;
+    expandImg.alt = this.alt;
+
+    image_text_title.innerText = this.parentElement.getElementsByClassName("tab-title")[0].innerText;
+    image_text_info.innerText = this.parentElement.getElementsByClassName("tab-info")[0].innerHTML;
+}
