@@ -29,12 +29,13 @@ h1,
 h2,
 nav,
 nav p,
-.tab-title {
+.tab-title,
+.menu-tab {
     font-family: 'Quicksand', sans-serif;
 }
 
 p,
-#menu-section li {
+.menu-item {
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -69,8 +70,7 @@ nav ul {
     padding: 0;
 }
 
-nav li,
-#menu-section li {
+nav li {
     list-style: none;
     display: flex;
     justify-content: space-between;
@@ -271,8 +271,47 @@ section h1 {
 
 
 /* Menu Section */
+#menu-section ul {
+    padding-left: 0;
+}
 
-#menu-section li {
+#menu-tabs {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.menu-tab {
+    cursor: pointer;
+    list-style: none;
+    font-weight: lighter;
+    font-size: 2rem;
+}
+
+.menu-tab:hover {
+    color: #A5D8C2;
+}
+
+.current-menu-tab{
+    color: #A5D8C2;
+    font-weight: normal;
+}
+
+.menu-items {
+    display: none;
+}
+
+.active {
+    display: block;
+}
+
+.menu-item {
+    padding: 1rem;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu-item:not(:last-child) {
     border-bottom: 1px solid #0000001f;
 }
 
@@ -399,7 +438,7 @@ section h1 {
 
 
 
-/*  */
+/* About Section */
 
 #image-tabs {
     display: flex;
@@ -408,16 +447,20 @@ section h1 {
 
 
 
-#image-tabs img {
-    filter: brightness(70%);
+.image-tab {
     cursor: pointer;
-    transition: all .5s ease-in-out;
-
 }
 
-#image-tabs img:hover {
+.tab-picture {
+    filter: brightness(70%);
+    transition: all .5s ease-in-out;
+}
+
+/* when image-tab div is hovered the image changes */
+.image-tab:hover .tab-picture {
     filter: brightness(90%);
 }
+
 
 .image-tab {
     position: relative;

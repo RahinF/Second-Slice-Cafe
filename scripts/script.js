@@ -36,28 +36,64 @@ document.getElementById("call-to-action").addEventListener("click", function(){
 // image and text change when a tab is clicked
 
 // add action lister to tabs
-let image_tabs = document.getElementById("image-tabs").getElementsByTagName("img");
-for (let index = 0; index < image_tabs.length; index++) {
-    image_tabs[index].addEventListener("click", change_image_tab);
-    
-}
+document.querySelectorAll(".image-tab").forEach(tab => {
+    tab.addEventListener("click", change_image_tab);
+});
 
 
 // set the inital image info to first tab
 let image_text_title = document.getElementById("image-text-title");
 let image_text_info = document.getElementById("image-text-info");
 
-image_text_title.innerText = document.getElementsByClassName("tab-title")[0].innerText;
-image_text_info.innerText = document.getElementsByClassName("tab-info")[0].innerHTML;
+image_text_title.innerText = document.querySelector(".tab-title").innerText;
+image_text_info.innerText = document.querySelector(".tab-info").innerHTML;
 
 
 // when clicked changes image src, alt and text.
 function change_image_tab(){
     let expandImg = document.getElementById("expandedImg");
+    let current_tab_image = this.querySelector(".tab-picture");
 
-    expandImg.src = this.src;
-    expandImg.alt = this.alt;
+    // change image and alt
+    expandImg.src = current_tab_image.src;
+    expandImg.alt = current_tab_image.alt;
 
-    image_text_title.innerText = this.parentElement.getElementsByClassName("tab-title")[0].innerText;
-    image_text_info.innerText = this.parentElement.getElementsByClassName("tab-info")[0].innerHTML;
+    // change the text and title
+    image_text_title.innerText = this.querySelector(".tab-title").innerText;
+    image_text_info.innerText = this.querySelector(".tab-info").innerHTML;
+}
+
+
+
+
+// Menu tabs
+// tabs clicked on shows menu items
+// order is important! changing the html will break this.
+let menu_tabs = document.querySelectorAll(".menu-tab");
+let menu_items = document.querySelectorAll(".menu-items");
+
+// add action listener
+menu_tabs.forEach(tab => {
+    tab.addEventListener("click", change_menu_tab);
+});
+
+
+function change_menu_tab() {
+
+    // array from nodelist
+    menu_tabs = Array.from(menu_tabs);
+
+    // remove the active state from menu tabs
+    menu_tabs.forEach(tab => {
+        tab.classList.remove("current-menu-tab"); 
+    });
+
+    // remove active state from all menu items
+    menu_items.forEach(item => {
+        item.classList.remove("active"); 
+    });
+
+    // adds active state to tab and menu items
+    this.classList.add("current-menu-tab");  
+    menu_items[menu_tabs.indexOf(this)].classList.add("active");
 }
