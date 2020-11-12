@@ -1,26 +1,3 @@
-/* 
-Colours
-#FFF    - White
-#F1F8F5 - Light Green
-#A5D8C2 - Green
-#84AC9B - Dark Green
-#1C1F33 - Dark Blue
-
-
-Fonts
-font-family: 'Quicksand', sans-serif; - Nav/Headings
-font-family: 'Montserrat', sans-serif; - Text
-*/
-
-:root {
-    --light_green: #F1F8F5;
-    --green: #A5D8C2;
-    --dark_green: #84AC9B;
-    --dark_blue: #1C1F33;
-    --white: #FFF;
-    --light_grey: #E8E8E8;
-}
-
 * {
     box-sizing: border-box;
 }
@@ -29,39 +6,59 @@ html {
     scroll-behavior: smooth;
 }
 
-body {
-    background-color: var(--white);
+body,
+main {
     margin: 0;
 }
 
-h1,
-h2,
-nav,
-nav p,
-.tab-title,
-.menu-tab {
-    font-family: 'Quicksand', sans-serif;
-}
-
-p,
-.menu-item {
-    font-family: 'Montserrat', sans-serif;
+.section {
+    min-height: 100vh;
 }
 
 .container {
     width: 100%;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
 }
 
 
 
+.contact-links {
+    display: flex;
+    justify-content: space-around;
+}
+
+.contact-link {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
 
 
+/* section diagonal divider */
 
+#about-section::before,
+#menu-section::before,
+#contact-section::before {
+    content: "";
+    display: block;
+    height: 100px;
+    transform: translateY(-2px);
+}
 
+#about-section::before {
+    animation: bg-color 3s ease forwards 2.5s;
+}
 
+#about-section::before,
+#contact-section::before {
+    clip-path: polygon(100% 0, 0 0, 0 100%);
+}
 
+#menu-section::before {
+    clip-path: polygon(0% 0, 100% 100%, 100% 0%);
+}
+
+/* end section divider */
 
 
 
@@ -73,7 +70,7 @@ p,
 /* Nav */
 nav {
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
 
 #nav-content {
@@ -83,7 +80,6 @@ nav {
     position: fixed;
     height: 100%;
     width: 380px;
-    background-color: var(--white);
     box-shadow: 4px 0px 14px -5px #0000001f;
 }
 
@@ -95,34 +91,31 @@ nav p {
     align-self: center;
 }
 
-nav ul {
+#nav-links {
     padding: 0;
 }
 
-nav li {
+.nav-link {
     list-style: none;
     display: flex;
     justify-content: space-between;
 }
 
 
-/* Nav Active */
-nav li.nav-active::after {
+/* Nav Active 
+indicated with block of colour on the end of link */
+.nav-link.active::after {
     content: "";
     display: block;
     height: 50px;
     width: 4px;
     align-self: center;
     border-radius: 4px 0 0 4px;
-    background-color: var(--green);
 }
 
-.nav-active>a {
-    font-weight: normal;
-    color: var(--green);
-}
 
-nav li a {
+
+.nav-link a {
     width: 90%;
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -130,25 +123,22 @@ nav li a {
     margin-right: 1rem;
     display: flex;
     justify-content: center;
-    color: var(--dark_blue);
     text-decoration: none;
-    font-size: 2rem;
-    font-weight: lighter;
     border-bottom: 1px solid var(--light_grey);
 }
 
 
-nav li:last-child>a {
+.nav-link:last-child a {
     border: none;
 }
 
-nav li a:hover {
-    font-weight: normal;
-    color: var(--dark_green);
+nav .contact-links {
+    align-self: center;
+    width: 50%;
 }
 
 /* Hamburger Menu */
-.toggle-nav#nav-content {
+#nav-content.toggle {
     display: flex;
     width: 100%;
 }
@@ -162,16 +152,14 @@ nav li a:hover {
     top: 1rem;
     right: 1rem;
     border-radius: 50%;
-    background: var(--green);
     height: 3rem;
     width: 3rem;
-    box-shadow: 2px 7px 15px -8px rgba(0, 0, 0, 0.75);
+    box-shadow: 2px 7px 15px -8px #000000bf;
     cursor: pointer;
     transition: all .2s ease-in-out;
 }
 
 #hamburger:hover {
-    background: var(--dark_green);
     transform: scale(1.1);
 
 }
@@ -182,7 +170,6 @@ nav li a:hover {
     right: 0.8rem;
     width: 1.5rem;
     height: .15rem;
-    background: #FFF;
     transition: 0.4s
 }
 
@@ -192,17 +179,16 @@ nav li a:hover {
     bottom: 1.15rem;
     width: .75rem;
     height: .15rem;
-    background: #FFF;
     transition: 0.4s
 }
 
 
 /* when clicked change the angle of the lines */
-.active .top-line {
+#hamburger.active .top-line {
     transform: rotate(-45deg) translate(-4px, 5px);
 }
 
-.active .bottom-line {
+#hamburger.active .bottom-line {
     width: 1.5rem !important;
     transform: rotate(45deg) translate(-1px, -3px);
 }
@@ -211,29 +197,7 @@ nav li a:hover {
 /* End Hamburger Menu */
 
 
-
-
-
-
-
-
-
-
-.contact-links {
-    justify-self: center;
-    align-self: center;
-    width: 50%;
-    display: flex;
-    justify-content: space-around;
-
-
-}
-
-.contact-links>div {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-}
+/* END NAV */
 
 
 
@@ -245,13 +209,15 @@ nav li a:hover {
 
 
 
-main {
-    margin-left: 0px;
-}
 
-section {
-    min-height: 100vh;
-}
+
+
+
+
+
+
+
+
 
 
 
@@ -260,12 +226,6 @@ section {
 
 
 /* Home section */
-
-#home-section .container {
-    display: flex;
-    justify-content: center;
-}
-
 
 #home-section {
     display: flex;
@@ -285,15 +245,15 @@ section {
 
 
 svg {
-    width: 80%;
+    display: block;
+    margin: auto;
+    width: 70%;
 }
 
 svg path {
     stroke-dasharray: 5166;
     stroke-dashoffset: 5166;
-    animation: line-anim 3s ease forwards;
-
-    stroke: var(--green);
+    animation: line-anim 3s ease forwards 0.5s;
 }
 
 @keyframes line-anim {
@@ -301,7 +261,6 @@ svg path {
     25% {
         fill: transparent;
     }
-
 
 
     75% {
@@ -333,23 +292,18 @@ svg path {
 /* end logo animation */
 
 #home-section p {
-    font-size: 1.3rem;
-    line-height: 3rem;
     padding-bottom: 2rem;
 }
 
 #call-to-action {
     cursor: pointer;
     text-align: center;
-    text-transform: uppercase;
-    font-size: 1rem;
-    font-weight: bold;
-    background: none;
     border: 0.3em solid var(--dark_blue);
     border-radius: 2rem;
 
     padding: 1rem 2rem;
     outline: none;
+    z-index: 1;
 
     /* Smooth grow transition */
     transition: all .2s ease-in-out;
@@ -357,8 +311,6 @@ svg path {
 
 #call-to-action:hover {
     border: 0.3em solid var(--dark_green);
-    background: var(--dark_green);
-    color: var(--white);
     transform: scale(1.1);
 }
 
@@ -392,20 +344,16 @@ svg path {
     height: 50px;
     width: 50px;
     border-radius: 50%;
-    background-color: var(--green);
-    font-size: 1.5rem;
-    box-shadow: 2px 7px 15px -8px rgba(0, 0, 0, 0.75);
+    box-shadow: 2px 7px 15px -8px #000000bf;
     cursor: pointer;
     transition: all .2s ease-in-out;
 }
 
 .circle:hover {
-    background-color: var(--dark_green);
     transform: scale(1.3);
 }
 
 .circle i {
-    color: var(--white);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -415,11 +363,10 @@ svg path {
 
 
 
-/* test */
-section h1 {
+
+.section h1 {
     margin: 0;
     margin-bottom: 4rem;
-    font-size: 3rem;
     text-align: center;
 }
 
@@ -434,18 +381,9 @@ section h1 {
 
 
 /* Menu Section */
-#menu-section::before {
-    content: "";
-    display: block;
-    height: 100px;
-    background-color: var(--light_green);
-    clip-path: polygon(100% 0, 0 0, 0 100%);
-    margin-bottom: 4rem;
-}
 
-#menu-section {
-    background: var(--white);
-}
+
+
 
 #menu-section ul {
     padding-left: 0;
@@ -459,24 +397,17 @@ section h1 {
 .menu-tab {
     cursor: pointer;
     list-style: none;
-    font-weight: lighter;
-    font-size: 2rem;
 }
 
-.menu-tab:hover {
-    color: var(--green);
-}
 
-.current-menu-tab {
-    color: var(--green);
-    font-weight: normal;
-}
+
+
 
 .menu-items {
     display: none;
 }
 
-.active {
+.menu-items.active {
     display: block;
 }
 
@@ -494,47 +425,33 @@ section h1 {
 
 
 
-
+iframe {
+    width: 600px;
+    height: 400px;
+    border: none;
+}
 
 
 
 /* Contact Section */
-#contact-section::before {
-    content: "";
-    display: block;
-    height: 100px;
-    background-color: var(--white);
-    clip-path: polygon(100% 0, 0 0, 0 100%);
-    margin-bottom: 100px;
-}
 
-#contact-section {
-    background: var(--light_green);
-}
+
+
 
 #location {
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-#opening-hours h2 {
-    font-size: clamp(1rem, 3vw, 1.5rem);
-}
+
 
 #opening-hours::before,
 #opening-hours::after {
     content: "";
     display: block;
     height: 1px;
-    background-color: var(--light_grey);
 }
-
-
-
-#contact-section .container {
-    display: grid;
-    grid-template-rows: max-content 1fr 1fr 1fr;
-}
-
 
 
 
@@ -592,101 +509,36 @@ section h1 {
 
 
 /* About Section */
-#about-section::before {
-    content: "";
-    display: block;
-    height: 100px;
-    background-color: var(--white);
-    clip-path: polygon(100% 0, 0 0, 0 100%);
-    margin-bottom: 4rem;
-    animation: bg-color 3s ease forwards 2.5s;
-}
 
-#about-section {
-    background: var(--light_green);
-}
 
-#image-tabs {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
+
 
 
 
 .image-tab {
-    cursor: pointer;
-}
-
-.tab-picture {
-    filter: brightness(70%);
-    transition: all .5s ease-in-out;
-}
-
-/* when image-tab div is hovered the image changes */
-.image-tab:hover .tab-picture {
-    filter: brightness(90%);
-}
-
-
-.image-tab {
-    position: relative;
-    display: flex;
-    justify-content: center;
-}
-
-
-
-.tab-title {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    margin: 0;
-
-    text-align: center;
-    font-size: 1.5rem;
-    color: var(--white);
-}
-
-.tab-title::after {
-    content: "";
-    display: block;
-
-    margin-top: 0.5rem;
-    height: 0.3rem;
-
-    background-color: var(--green);
-
-
-}
-
-.tab-info {
     display: none;
 }
 
-.expanded-image {
-    position: relative;
+.image-tab.active {
+    display: flex;
 }
 
-.expanded-image img,
+
+
+
+
+
+
+
+
+
 .tab-picture {
     max-width: 100%;
     max-height: 100%;
-    box-shadow: 2px 7px 15px -8px rgba(0, 0, 0, 0.75);
+    box-shadow: 2px 7px 15px -8px #000000bf;
 }
 
-#image-text {
-    position: absolute;
-    bottom: 20%;
-    right: 0;
 
-    padding: 3rem;
-    width: 50%;
-    background-color: var(--green);
-    box-shadow: 2px 7px 15px -8px rgba(0, 0, 0, 0.75);
-}
 
 
 
@@ -721,9 +573,6 @@ section h1 {
         max-width: 540px;
     }
 
-    #image-tabs {
-        flex-direction: column;
-    }
 }
 
 
@@ -738,7 +587,7 @@ section h1 {
         max-width: 720px;
     }
 
-    #image-tabs {
+    #location {
         flex-direction: row;
     }
 
@@ -760,7 +609,7 @@ section h1 {
         display: flex;
     }
 
-    .toggle-nav#nav-content {
+    #nav-content.toggle {
         width: 380px;
     }
 

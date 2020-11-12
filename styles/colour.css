@@ -1,0 +1,124 @@
+/* 
+Colours
+#FFF    - White
+#F1F8F5 - Light Green
+#A5D8C2 - Green
+#84AC9B - Dark Green
+#1C1F33 - Dark Blue
+*/
+
+:root {
+    --light_green: #F1F8F5;
+    --green: #A5D8C2;
+    --dark_green: #84AC9B;
+    --dark_blue: #1C1F33;
+    --white: #FFF;
+    --light_grey: #E8E8E8;
+}
+
+
+body {
+    background: var(--white);
+}
+
+#nav-content {
+    background: var(--white);
+}
+
+
+.nav-link.active::after {
+    background: var(--green);
+}
+
+.nav-link.active a {
+    color: var(--green);
+}
+
+.nav-link a {
+    color: var(--dark_blue);
+}
+
+.nav-link a:hover {
+    color: var(--dark_green);
+}
+
+#hamburger {
+    background: var(--green);
+}
+
+#hamburger:hover {
+    background: var(--dark_green);
+}
+
+#hamburger .top-line {
+    background: var(--white);
+}
+
+#hamburger .bottom-line {
+    background: var(--white);
+}
+
+svg path {
+    stroke: var(--green);
+}
+
+#call-to-action {
+    background: none;
+}
+
+#call-to-action:hover {
+    background: var(--dark_green);
+    color: var(--white);
+}
+
+.circle {
+    background: var(--green);
+}
+
+.circle:hover {
+    background: var(--dark_green);
+}
+
+.circle i {
+    color: var(--white);
+}
+
+#menu-section {
+    background: var(--white);
+}
+
+#menu-section::before {
+    background: var(--light_green);
+}
+
+.menu-tab:hover {
+    color: var(--green);
+}
+
+.menu-tab.active {
+    color: var(--green);
+}
+
+#contact-section {
+    background: var(--light_green);
+}
+
+#contact-section::before {
+    background: var(--white);
+}
+
+#opening-hours::before {
+    background: var(--light_grey);
+}
+
+#opening-hours::after {
+    background: var(--light_grey);
+}
+
+#about-section {
+    background: var(--light_green);
+}
+
+#about-section::before {
+    background: var(--white);
+}
