@@ -122,3 +122,15 @@ svg path {
 #about-section::before {
     background: var(--white);
 }
+
+.dot {
+    background: var(--white);
+}
+
+.dot:hover {
+    background: var(--green);
+}
+
+.dot.active {
+    background: var(--green);
+}

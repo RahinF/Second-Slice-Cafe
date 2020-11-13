@@ -36,38 +36,92 @@ document.getElementById("call-to-action").addEventListener("click", function(){
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 // Image tabs
-// image and text change when a tab is clicked
+
 
 let image_tabs =  document.querySelectorAll(".image-tab");
+let sl =  document.querySelector("#sl");
+let sr =  document.querySelector("#sr");
+let imgIndex = 0;
 
-// add action lister to tabs
-// document.querySelectorAll(".image-tab").forEach(tab => {
-//     tab.addEventListener("click", change_image_tab);
-// });
+const slideshow_delay = 10000;
+
+    // create slideshow dots
+for (let index = 0; index < image_tabs.length; index++) {
+
+    let dot = document.createElement("div");
+    dot.classList.add('circle', 'dot');
+
+    dot.addEventListener("click", function(){        
+
+        image_tabs.forEach(tab => { tab.classList.remove("active") });
+    
+        image_tabs[index].classList.add("active");
+        imgIndex = index;
+
+        change_dot();
+
+    });
+
+    document.querySelector("#dots").appendChild(dot);
+
+}
+
+// sets first image 
+document.querySelector(".dot").classList.add("active");
 
 
-// // set the inital image info to first tab
-// let image_text_title = document.getElementById("image-text-title");
-// let image_text_info = document.getElementById("image-text-info");
-
-// image_text_title.innerText = document.querySelector(".tab-title").innerText;
-// image_text_info.innerText = document.querySelector(".tab-info").innerHTML;
+setInterval(next_image, slideshow_delay);
 
 
-// // when clicked changes image src, alt and text.
-// function change_image_tab(){
-//     let expandImg = document.getElementById("expandedImg");
-//     let current_tab_image = this.querySelector(".tab-picture");
+function next_image() {
+    image_tabs[imgIndex].classList.remove("active");
 
-//     // change image and alt
-//     expandImg.src = current_tab_image.src;
-//     expandImg.alt = current_tab_image.alt;
+    // if prev button is clicked go back 1 image else go foward 1 image
+    let pos = this.id == sl.id ? imgIndex + image_tabs.length - 1 : imgIndex + 1;
+    imgIndex = pos % image_tabs.length;
 
-//     // change the text and title
-//     image_text_title.innerText = this.querySelector(".tab-title").innerText;
-//     image_text_info.innerText = this.querySelector(".tab-info").innerHTML;
-// }
+    image_tabs[imgIndex].classList.add("active");
+
+    change_dot();
+}
+
+
+// dots change to show active image
+function change_dot(){
+        let dots = document.querySelectorAll(".dot");
+
+        dots.forEach(dot => { dot.classList.remove("active") });
+    
+        dots[imgIndex].classList.add("active");
+}
+
+sl.addEventListener("click", next_image);
+sr.addEventListener("click", next_image);
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -120,10 +174,10 @@ hamburger_menu.addEventListener("click", function () {
     nav_links_container.classList.toggle('toggle'); // show links
     hamburger_menu.classList.toggle('active'); // hamburger animation
 
-    // cant scroll if hamburger is active
-    body.style.overflow = body.style.overflow == "visible" ? "hidden": "visible";
 
-  
+    // cant scroll if hamburger is active
+    body.style.overflow = nav_links_container.classList.contains("toggle") ? "hidden": "visible";
+
 });
 
 
