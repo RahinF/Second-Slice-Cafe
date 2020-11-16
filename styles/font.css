@@ -53,8 +53,8 @@ p,
 
 }
 
-.section h1 {
-    font-size: clamp(2rem, 3vw, 3rem);
+.section-heading {
+    font-size: clamp(3rem, 3vw, 4rem);
 }
 
 .menu-tab {
@@ -68,4 +68,13 @@ p,
 
 #opening-hours h2 {
     font-size: clamp(1rem, 3vw, 1.5rem);
+}
+
+.tab-text h2 {
+    font-size: clamp(1.8rem, 3vw, 2.3rem);
+}
+
+.tab-text p {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    line-height: 2rem;
 }
