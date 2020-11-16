@@ -1,30 +1,51 @@
 // Highlight current nav link
-// if the screen falls within the sections area
-// change the link appearance to indicate that it is active
-
 let nav_links = document.querySelectorAll("nav li");
 let sections = document.querySelectorAll(".section");
 
 
-window.onscroll = function() {
 
-    for (let [index, section] of sections.entries()) {
-        let section_top = section.offsetTop;
-        let section_bottom = section_top + section.offsetHeight;
-        
-        
-        if (window.scrollY >= section_top && window.scrollY < section_bottom) {
-            nav_links[index].classList.add("active");
-        } 
 
-        else {
-            nav_links[index].classList.remove("active");
+let options = { threshold: 0.6 };
+
+let section_observer = new IntersectionObserver(function (entries) {
+
+    entries.forEach((entry) => {
+
+        // if the current section is in the viewport (at least 60%)
+        // change the nav link to the current section
+
+        if (entry.isIntersecting) {
+            for (let [index, section] of sections.entries()) {
+                if (section.id == entry.target.id) {
+                    current_section(index);
+                }
+            }
         }
+    });
+}, options);
 
-    };
+
+sections.forEach((section) => {
+    section_observer.observe(section);
+});
+
+// makes the link of the current section active
+function current_section(current_link) {
+    nav_links.forEach((link) => {
+        link.classList.remove("active");
+    });
+
+    nav_links[current_link].classList.add("active");
+}
 
 
-};
+
+
+
+
+
+
+
 
 
 // Call to action button scroll to section
