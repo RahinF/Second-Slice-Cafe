@@ -2,7 +2,7 @@ const slideshow = document.querySelector("#slideshow");
 
 const nav_links = document.querySelectorAll(".nav-link");
 const sections = document.querySelectorAll(".section");
-const cta_btn = document.querySelector("#call-to-action");
+
 
 const image_tabs = document.querySelectorAll(".slideshow-tab");
 const slideshow_previous_btn = document.querySelector("#slideshow-previous");
@@ -141,15 +141,6 @@ function section_heading_anim(index) {
 
 
 
-/* -------------------------------------------------------------------------- */
-/*                            Call to Action Button                           */
-/* -------------------------------------------------------------------------- */
-
-// Moves to about section 
-
-cta_btn.addEventListener("click", function () {
-    slideshow.scrollIntoView(true);
-});
 
 
 
@@ -297,6 +288,58 @@ menu_lists_observer.observe(menu);
 
 
 /* -------------------------------------------------------------------------- */
+/*                          Contact Section animation                         */
+/* -------------------------------------------------------------------------- */
+
+let contact_details = document.querySelector("#contact-details");
+let google_map = document.querySelector("#google-map");
+let contact_links = document.querySelector("#contact-section .contact-links");
+
+let contact_observer_options = {threshold: 0.5};
+
+// add animation to each element in contact section
+let contact_section_observer = new IntersectionObserver(function (entries, contact_section_observer) {
+
+    entries.forEach((entry) => {
+
+        if (entry.isIntersecting) {
+
+
+            switch (entry.target.id) {
+
+                case contact_details.id:
+                    document.querySelector("#opening-hours").classList.add("start");
+                    document.querySelector("#location").classList.add("start");
+                    contact_section_observer.unobserve(contact_details);
+                    break;
+
+                case google_map.id:
+                    google_map.classList.add("start");
+                    contact_section_observer.unobserve(google_map);
+                    break;
+
+                case contact_links.id:
+                    contact_links.classList.add("start");
+                    contact_section_observer.unobserve(contact_links);
+                    break;
+
+            }
+
+
+        }
+
+
+
+    });
+
+}, contact_observer_options);
+
+
+contact_section_observer.observe(contact_details);
+contact_section_observer.observe(google_map);
+contact_section_observer.observe(contact_links);
+
+/* -------------------------------------------------------------------------- */
 /*                                 Image tabs                                 */
 /* -------------------------------------------------------------------------- */
 
@@ -331,10 +374,21 @@ for (let index = 0; index < image_tabs.length; index++) {
 document.querySelector(".dot").classList.add("active");
 
 
-setInterval(next_image, slideshow_delay);
+let slideshow_timer = setInterval(next_image, slideshow_delay);
 
+
+// reset timer when next/prev is clicked
+// smoother slideshow
+function reset_slideshow_timer(){
+    clearInterval(slideshow_timer);
+    slideshow_timer = setInterval(next_image, slideshow_delay);
+}
 
 function next_image() {
+
+    reset_slideshow_timer();
+    
+
     image_tabs[imgIndex].classList.remove("active");
 
     // if prev button is clicked go back 1 image else go foward 1 image
@@ -456,7 +510,7 @@ hamburger_menu.addEventListener("click", function () {
 
 
     // cant scroll if hamburger is active
-    body.style.overflow = nav_links_container.classList.contains("toggle") ? "hidden" : "visible";
+    body.style.overflowY = nav_links_container.classList.contains("toggle") ? "hidden" : "visible";
 
 });
 
@@ -470,6 +524,7 @@ for (let index = 0; index < nav_links.length; index++) {
         if (hamburger_menu.classList.contains('active')) {
             nav_links_container.classList.toggle('toggle');
             hamburger_menu.classList.toggle('active');
+            body.style.overflowY = "visible";
         }
     });
 
@@ -480,7 +535,7 @@ window.addEventListener("resize", function () {
     if (window.innerWidth >= 1366) {
         nav_links_container.classList.remove("toggle");
         hamburger_menu.classList.remove('active');
-        body.style.overflow = "visible";
+        body.style.overflowY = "visible";
     }
 });
 

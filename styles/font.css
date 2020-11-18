@@ -37,7 +37,7 @@ p,
 }
 
 #home-section p {
-    font-size: 1.3rem;
+    font-size: clamp(1rem, 3vw, 1.5rem);
     line-height: 3rem;
 }
 
@@ -66,8 +66,13 @@ p,
     font-weight: normal;
 }
 
-#opening-hours h2 {
-    font-size: clamp(1rem, 3vw, 1.5rem);
+#contact-details h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    
+}
+
+#contact-details i{
+    font-size: 2rem;
 }
 
 .tab-text h2 {

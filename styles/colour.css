@@ -19,6 +19,7 @@ Colours
 
 body {
     background: var(--white);
+    color: var(--dark_blue);
 }
 
 .section-heading-bar {
@@ -141,4 +142,8 @@ svg path {
 
 .menu-tab-indicator {
     background: var(--green);
+}
+
+#contact-details i{
+    color: var(--dark_blue);
 }
