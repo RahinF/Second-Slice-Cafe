@@ -81,7 +81,6 @@ let section_observer = new IntersectionObserver(function (entries) {
                 if (section.id == entry.target.id) {
 
                     highlight_current_nav_link(index);
-                    section_heading_anim(index);
                 }
             }
         }
@@ -108,20 +107,6 @@ function highlight_current_nav_link(current_link) {
 /* -------------------------------------------------------------------------- */
 
 
-function section_heading_anim(index) {
-
-    let current_section = sections[index];
-    let heading_text = current_section.querySelector(".section-heading");
-    let heading_bar = current_section.querySelector(".section-heading-bar");
-
-    if (current_section.querySelector(".section-heading")) {
-        heading_text.classList.add("start");
-        heading_bar.classList.add("start");
-
-    }
-
-}
-
 
 
 
@@ -160,86 +145,82 @@ function section_heading_anim(index) {
 
 
 /* -------------------------------------------------------------------------- */
-/*                           About Section Animation                          */
+/*                            Animation                                       */
 /* -------------------------------------------------------------------------- */
 
-let slideshow_observer_options = { threshold: 0.5 };
-
-let about_observer = new IntersectionObserver(function (entries, about_observer) {
-
-    entries.forEach((entry) => {
-
-        // if slideshow controls are visible on the viewport add
-        // fade in animation once.
-
-        if (entry.isIntersecting) {
-
-            document.querySelector("#slideshow-controls").classList.add("start");
-            document.querySelector(".tab-picture").classList.add("start");
-            document.querySelector(".tab-text").classList.add("start");
-
-            about_observer.unobserve(slideshow);
-        }
-    });
-
-}, slideshow_observer_options);
 
 
 
-about_observer.observe(slideshow);
+let section_heading_text = document.querySelectorAll(".section-heading");
+let section_heading_bar = document.querySelectorAll(".section-heading-bar");
 
+let slideshow_controls = document.querySelector("#slideshow-controls");
+let slideshow_tab_text = document.querySelector(".slideshow-tab.active .tab-text");
+let slideshow_tab_picture = document.querySelector(".slideshow-tab.active .tab-picture");
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* -------------------------------------------------------------------------- */
-/*                           Menu Section Tab Animation                       */
-/* -------------------------------------------------------------------------- */
-
-let menu_tab_observer_options = { threshold: 1 };
 let menu_tabs_container = document.querySelector("#menu-tabs");
 
-let menu_tab_observer = new IntersectionObserver(function (entries, menu_tab_observer) {
+let google_map = document.querySelector("#google-map");
+let contact_links = document.querySelector("#contact-section .contact-links");
+let opening_hours = document.querySelector("#opening-hours");
+let cafe_location = document.querySelector("#location");
+
+let observer = new IntersectionObserver(function (entries, observer) {
 
     entries.forEach((entry) => {
 
 
         if (entry.isIntersecting) {
 
-            // add delay to each tabs animation
-            let animation_delay = 0;
-            menu_tabs.forEach(tab => {
-            
-                tab.classList.add("start");
-                tab.style.animationDelay = `${animation_delay}s`;
-                animation_delay = animation_delay + 0.5;
-            });
-            
-            menu_tab_indicator.classList.add("start");
-            menu_tab_observer.unobserve(menu_tabs_container);
+
+            if (entry.target.id == menu_tabs_container.id) {
+                // add delay to each tabs animation
+                let animation_delay = 0;
+                menu_tabs.forEach(tab => {
+
+                    tab.classList.add("start");
+                    tab.style.animationDelay = `${animation_delay}s`;
+                    animation_delay = animation_delay + 0.5;
+                });
+            }
+
+            else {
+
+                entry.target.classList.add("start");
+            }
+
+            observer.unobserve(entry.target);
         }
-    });
-
-}, menu_tab_observer_options);
 
 
+    })
+});
 
-menu_tab_observer.observe(menu_tabs_container);
+
+
+
+
+
+observer.observe(slideshow_controls);
+observer.observe(slideshow_tab_text);
+observer.observe(slideshow_tab_picture);
+
+
+section_heading_text.forEach(heading => {
+    observer.observe(heading);
+});
+
+section_heading_bar.forEach(heading_bar => {
+    observer.observe(heading_bar);
+});
+
+observer.observe(menu_tabs_container);
+
+observer.observe(google_map);
+observer.observe(opening_hours);
+observer.observe(cafe_location);
+observer.observe(contact_links);
+
 
 
 /* -------------------------------------------------------------------------- */
@@ -287,57 +268,6 @@ let menu_lists_observer = new IntersectionObserver(function (entries, menu_lists
 menu_lists_observer.observe(menu);
 
 
-/* -------------------------------------------------------------------------- */
-/*                          Contact Section animation                         */
-/* -------------------------------------------------------------------------- */
-
-let contact_details = document.querySelector("#contact-details");
-let google_map = document.querySelector("#google-map");
-let contact_links = document.querySelector("#contact-section .contact-links");
-
-let contact_observer_options = {threshold: 0.5};
-
-// add animation to each element in contact section
-let contact_section_observer = new IntersectionObserver(function (entries, contact_section_observer) {
-
-    entries.forEach((entry) => {
-
-        if (entry.isIntersecting) {
-
-
-            switch (entry.target.id) {
-
-                case contact_details.id:
-                    document.querySelector("#opening-hours").classList.add("start");
-                    document.querySelector("#location").classList.add("start");
-                    contact_section_observer.unobserve(contact_details);
-                    break;
-
-                case google_map.id:
-                    google_map.classList.add("start");
-                    contact_section_observer.unobserve(google_map);
-                    break;
-
-                case contact_links.id:
-                    contact_links.classList.add("start");
-                    contact_section_observer.unobserve(contact_links);
-                    break;
-
-            }
-
-
-        }
-
-
-
-    });
-
-}, contact_observer_options);
-
-
-contact_section_observer.observe(contact_details);
-contact_section_observer.observe(google_map);
-contact_section_observer.observe(contact_links);
 
 /* -------------------------------------------------------------------------- */
 /*                                 Image tabs                                 */
@@ -379,7 +309,7 @@ let slideshow_timer = setInterval(next_image, slideshow_delay);
 
 // reset timer when next/prev is clicked
 // smoother slideshow
-function reset_slideshow_timer(){
+function reset_slideshow_timer() {
     clearInterval(slideshow_timer);
     slideshow_timer = setInterval(next_image, slideshow_delay);
 }
@@ -387,7 +317,7 @@ function reset_slideshow_timer(){
 function next_image() {
 
     reset_slideshow_timer();
-    
+
 
     image_tabs[imgIndex].classList.remove("active");
 
@@ -477,7 +407,7 @@ function change_menu_tab() {
 
     // change the position of the menu tab indicator
     let grid_col = menu_tabs.indexOf(this) + 1;
-    
+
 
     // restart animation
     menu_tab_indicator.classList.remove("start");
@@ -485,8 +415,8 @@ function change_menu_tab() {
     menu_tab_indicator.classList.add("start");
 
     menu_tab_indicator.style.gridColumn = grid_col;
-    
-    
+
+
 }
 
 
@@ -511,7 +441,6 @@ hamburger_menu.addEventListener("click", function () {
 
     // cant scroll if hamburger is active
     body.style.overflowY = nav_links_container.classList.contains("toggle") ? "hidden" : "visible";
-
 });
 
 
