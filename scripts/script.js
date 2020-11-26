@@ -1,33 +1,13 @@
-const slideshow = document.querySelector("#slideshow");
-
-const nav_links = document.querySelectorAll(".nav-link");
-const sections = document.querySelectorAll(".section");
 
 
-const image_tabs = document.querySelectorAll(".slideshow-tab");
-const slideshow_previous_btn = document.querySelector("#slideshow-previous");
-const slideshow_next_btn = document.querySelector("#slideshow-next");
-const slideshow_delay = 10000;
-
-let menu_tabs = document.querySelectorAll(".menu-tab");
-let menu_lists = document.querySelectorAll(".menu-list");
-let menu_tab_indicator = document.querySelector(".menu-tab-indicator");
-
-
-
-
-
-
-
-
+let nav_links = document.querySelectorAll(".nav-link");
 
 
 /* -------------------------------------------------------------------------- */
 /*                          Section heading under bar                         */
 /* -------------------------------------------------------------------------- */
 
-const section_headings = document.querySelectorAll(".section-heading");
-
+let section_headings = document.querySelectorAll(".section-heading");
 
 section_headings.forEach(heading => {
 
@@ -40,32 +20,12 @@ section_headings.forEach(heading => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* -------------------------------------------------------------------------- */
 /*                         Highlight current nav link                         */
 /* -------------------------------------------------------------------------- */
 
 
-
+let sections = document.querySelectorAll(".section");
 let section_observer_options = { threshold: 0.6 };
 
 let section_observer = new IntersectionObserver(function (entries) {
@@ -105,50 +65,8 @@ function highlight_current_nav_link(current_link) {
 
 
 /* -------------------------------------------------------------------------- */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*                                  Animation                                 */
 /* -------------------------------------------------------------------------- */
-/*                            Animation                                       */
-/* -------------------------------------------------------------------------- */
-
-
 
 
 let section_heading_text = document.querySelectorAll(".section-heading");
@@ -174,6 +92,7 @@ let observer = new IntersectionObserver(function (entries, observer) {
 
 
             if (entry.target.id == menu_tabs_container.id) {
+
                 // add delay to each tabs animation
                 let animation_delay = 0;
                 menu_tabs.forEach(tab => {
@@ -273,7 +192,10 @@ menu_lists_observer.observe(menu);
 /*                                 Image tabs                                 */
 /* -------------------------------------------------------------------------- */
 
-
+let slideshow_previous_btn = document.querySelector("#slideshow-previous");
+let slideshow_next_btn = document.querySelector("#slideshow-next");
+let slideshow_delay = 10000;
+let image_tabs = document.querySelectorAll(".slideshow-tab");
 
 let imgIndex = 0;
 
@@ -361,21 +283,13 @@ slideshow_next_btn.addEventListener("click", next_image);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 /* -------------------------------------------------------------------------- */
 /*                                   Menu tabs                                */
 /* -------------------------------------------------------------------------- */
 
+let menu_tabs = document.querySelectorAll(".menu-tab");
+let menu_lists = document.querySelectorAll(".menu-list");
+let menu_tab_indicator = document.querySelector(".menu-tab-indicator");
 
 
 
@@ -440,7 +354,7 @@ hamburger_menu.addEventListener("click", function () {
 
 
     // cant scroll if hamburger is active
-    body.style.overflowY = nav_links_container.classList.contains("toggle") ? "hidden" : "visible";
+    body.style.overflow = nav_links_container.classList.contains("toggle") ? "hidden" : "visible";
 });
 
 
@@ -453,18 +367,20 @@ for (let index = 0; index < nav_links.length; index++) {
         if (hamburger_menu.classList.contains('active')) {
             nav_links_container.classList.toggle('toggle');
             hamburger_menu.classList.toggle('active');
-            body.style.overflowY = "visible";
+            body.style.overflow = "visible";
         }
     });
 
 }
 
 // removes nav active state if window is resized
+
+let desktop_min_width = 1366;
 window.addEventListener("resize", function () {
-    if (window.innerWidth >= 1366) {
+    if (window.innerWidth >= desktop_min_width) {
         nav_links_container.classList.remove("toggle");
         hamburger_menu.classList.remove('active');
-        body.style.overflowY = "visible";
+        body.style.overflow = "visible";
     }
 });
 

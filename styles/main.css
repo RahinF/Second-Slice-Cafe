@@ -1,17 +1,25 @@
-/* -------------------------------------------------------------------------- */
-/*                                    Font                                    */
-/* -------------------------------------------------------------------------- */
-/* 
 
-Font face, weight and size, letter and line spacing
-
+/*
 Nav/Headings
 font-family: 'Quicksand', sans-serif; 
 
 Text
 font-family: 'Montserrat', sans-serif; 
 
+
+Colours
+#FFF    - White
+#F1F8F5 - Light Green
+#A5D8C2 - Green
+#84AC9B - Dark Green
+#1C1F33 - Dark Blue 
 */
+
+/* -------------------------------------------------------------------------- */
+/*                                    Font                                    */
+/* -------------------------------------------------------------------------- */
+/* Font face, weight and size, letter and line spacing */
+
 
 h1,
 h2,
@@ -26,6 +34,16 @@ p,
   font-family: "Montserrat", sans-serif;
 }
 
+.circle {
+  font-size: 1.5rem;
+}
+
+.section-heading {
+  font-size: clamp(3rem, 3vw, 4rem);
+}
+
+/* -------------------------------------------------------------------------- */
+
 .nav-link.active a {
   font-weight: normal;
 }
@@ -35,25 +53,25 @@ p,
   font-weight: lighter;
 }
 
+/* -------------------------------------------------------------------------- */
+
 #home-section p {
   font-size: clamp(1rem, 3vw, 1.5rem);
   line-height: 3rem;
 }
 
-#call-to-action {
-  text-transform: uppercase;
-  font-size: 1rem;
-  font-weight: bold;
+/* -------------------------------------------------------------------------- */
+
+.tab-text h2 {
+  font-size: clamp(1.8rem, 3vw, 2.3rem);
 }
 
-.circle {
-  /* size of the icon */
-  font-size: 1.5rem;
+.tab-text p {
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  line-height: 2rem;
 }
 
-.section-heading {
-  font-size: clamp(3rem, 3vw, 4rem);
-}
+/* -------------------------------------------------------------------------- */
 
 .menu-tab {
   font-weight: lighter;
@@ -64,21 +82,14 @@ p,
   font-weight: normal;
 }
 
+/* -------------------------------------------------------------------------- */
+
 #contact-details h2 {
   font-size: clamp(1.5rem, 3vw, 2rem);
 }
 
 #contact-details i {
   font-size: 2rem;
-}
-
-.tab-text h2 {
-  font-size: clamp(1.8rem, 3vw, 2.3rem);
-}
-
-.tab-text p {
-  font-size: clamp(1rem, 3vw, 1.2rem);
-  line-height: 2rem;
 }
 
 @media (hover: hover) {
@@ -90,15 +101,6 @@ p,
 /* -------------------------------------------------------------------------- */
 /*                                   Colour                                   */
 /* -------------------------------------------------------------------------- */
-
-/* 
-Colours
-#FFF    - White
-#F1F8F5 - Light Green
-#A5D8C2 - Green
-#84AC9B - Dark Green
-#1C1F33 - Dark Blue
-*/
 
 :root {
   --light_green: #f1f8f5;
@@ -118,6 +120,8 @@ body {
   background: var(--green);
 }
 
+/* -------------------------------------------------------------------------- */
+
 #nav-content {
   background: var(--white);
 }
@@ -134,6 +138,8 @@ body {
   color: var(--dark_blue);
 }
 
+/* -------------------------------------------------------------------------- */
+
 #hamburger {
   background: var(--green);
 }
@@ -145,6 +151,8 @@ body {
 #hamburger .bottom-line {
   background: var(--white);
 }
+
+/* -------------------------------------------------------------------------- */
 
 svg path {
   stroke: var(--green);
@@ -158,33 +166,7 @@ svg path {
   color: var(--white);
 }
 
-#menu-section {
-  background: var(--white);
-}
-
-#menu-section::before {
-  background: var(--light_green);
-}
-
-.menu-tab.active {
-  color: var(--green);
-}
-
-#contact-section {
-  background: var(--light_green);
-}
-
-#contact-section::before {
-  background: var(--white);
-}
-
-#opening-hours::before {
-  background: var(--light_grey);
-}
-
-#opening-hours::after {
-  background: var(--light_grey);
-}
+/* -------------------------------------------------------------------------- */
 
 #about-section {
   background: var(--light_green);
@@ -202,29 +184,55 @@ svg path {
   background: var(--green);
 }
 
+/* -------------------------------------------------------------------------- */
+
+#menu-section {
+  background: var(--white);
+}
+
+#menu-section::before {
+  background: var(--light_green);
+}
+
+.menu-tab.active {
+  color: var(--green);
+}
+
 .menu-tab-indicator {
   background: var(--green);
+}
+
+/* -------------------------------------------------------------------------- */
+
+#contact-section {
+  background: var(--light_green);
+}
+
+#contact-section::before {
+  background: var(--white);
+}
+
+#opening-hours::before {
+  background: var(--light_grey);
+}
+
+#opening-hours::after {
+  background: var(--light_grey);
 }
 
 #contact-details i {
   color: var(--dark_blue);
 }
 
+/* -------------------------------------------------------------------------- */
+
 footer {
   background: var(--light_green);
 }
 
 @media (hover: hover) {
-  .dot:hover {
-    background: var(--green);
-  }
-
   .circle:hover {
     background: var(--dark_green);
-  }
-
-  .menu-tab:hover {
-    color: var(--dark_green);
   }
 
   .nav-link a:hover {
@@ -233,6 +241,14 @@ footer {
 
   #hamburger:hover {
     background: var(--dark_green);
+  }
+
+  .dot:hover {
+    background: var(--green);
+  }
+
+  .menu-tab:hover {
+    color: var(--dark_green);
   }
 }
 
@@ -255,6 +271,8 @@ footer {
   animation-fill-mode: forwards;
 }
 
+/* -------------------------------------------------------------------------- */
+
 .section-heading-bar.start {
   animation: heading 1s ease-in-out 0.7s;
   animation-fill-mode: forwards;
@@ -264,6 +282,7 @@ footer {
   animation: fade-down 1s ease-in-out;
   animation-fill-mode: forwards;
 }
+/* -------------------------------------------------------------------------- */
 
 .menu-tab.start {
   animation: fade-down 0.7s ease-in-out;
@@ -280,8 +299,14 @@ footer {
   animation-fill-mode: forwards;
 }
 
+/* -------------------------------------------------------------------------- */
+
+#home-section {
+  animation: bg-color 3s ease forwards 2.5s;
+}
+
 #home-section p {
-  animation: fade-up 1s ease-in-out 3.5s;
+  animation: fade-down 1s ease-in-out 3.5s;
   animation-fill-mode: forwards;
 }
 
@@ -290,6 +315,8 @@ footer {
   stroke-dashoffset: 5166;
   animation: line-anim 3s ease forwards 0.5s;
 }
+
+/* -------------------------------------------------------------------------- */
 
 #opening-hours.start {
   animation: fade-from-left 1s ease-in-out;
@@ -309,6 +336,8 @@ footer {
   animation: fade-up 1.5s ease-in-out;
   animation-fill-mode: forwards;
 }
+
+/* -------------------------------------------------------------------------- */
 
 @keyframes bg-color {
   to {
@@ -402,12 +431,9 @@ main {
   margin: 0;
 }
 
-body {
-  overflow-x: hidden;
-}
-
 .section {
   min-height: 100vh;
+  overflow: hidden;
 }
 
 .container {
@@ -511,6 +537,7 @@ nav {
   position: fixed;
   height: 100vh;
   width: 380px;
+  padding: 2rem 0 2rem 0;
   box-shadow: 4px 0px 14px -5px #0000001f;
 }
 
@@ -541,11 +568,8 @@ indicated with block of colour on the end of link */
 
 .nav-link a {
   width: 90%;
-  padding-top: 1rem;
-  padding-left: calc(10% - 2rem);
-  padding-bottom: 1rem;
-  margin-left: 1rem;
-  margin-right: 1rem;
+  padding: 1rem 0 1rem calc(10% - 2rem);
+  margin: 0 1rem;
   display: flex;
   justify-content: center;
   text-decoration: none;
@@ -643,6 +667,60 @@ nav .contact-links {
 }
 
 /* -------------------------------------------------------------------------- */
+/*                                About Section                               */
+/* -------------------------------------------------------------------------- */
+
+.slideshow-tab {
+  display: none;
+}
+
+.slideshow-tab.active {
+  display: flex;
+  flex-direction: column;
+}
+
+.tab-picture {
+  max-width: 100%;
+  height: auto;
+  box-shadow: 2px 7px 15px -8px #000000bf;
+  order: 1;
+  margin: auto;
+  opacity: 0;
+}
+
+.tab-text {
+  order: 2;
+  opacity: 0;
+}
+
+.tab-text p {
+  min-height: 12rem;
+  padding-right: 1rem;
+}
+
+#slideshow-controls {
+  padding: 1rem 2rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  opacity: 0;
+}
+
+#dots {
+  display: flex;
+  align-items: center;
+}
+
+.dot {
+  width: 20px;
+  height: 20px;
+}
+
+.dot:nth-child(2) {
+  margin: 0 1rem;
+}
+
+/* -------------------------------------------------------------------------- */
 /*                                Menu Section                                */
 /* -------------------------------------------------------------------------- */
 #menu {
@@ -737,59 +815,6 @@ nav .contact-links {
 #contact-details div {
   text-align: center;
   opacity: 0;
-}
-
-/* -------------------------------------------------------------------------- */
-/*                                About Section                               */
-/* -------------------------------------------------------------------------- */
-
-.slideshow-tab {
-  display: none;
-}
-
-.slideshow-tab.active {
-  display: flex;
-  flex-direction: column;
-}
-
-.tab-picture {
-  max-width: 100%;
-  height: auto;
-  box-shadow: 2px 7px 15px -8px #000000bf;
-  order: 1;
-  margin: auto;
-  opacity: 0;
-}
-
-.tab-text {
-  order: 2;
-  opacity: 0;
-}
-
-.tab-text p {
-  padding-right: 1rem;
-}
-
-#slideshow-controls {
-  padding: 1rem 4rem 4rem;
-  display: flex;
-  justify-content: space-between;
-  margin: auto;
-  opacity: 0;
-}
-
-#dots {
-  display: flex;
-  align-items: center;
-}
-
-.dot {
-  width: 20px;
-  height: 20px;
-}
-
-.dot:nth-child(2) {
-  margin: 0 1rem;
 }
 
 /* -------------------------------------------------------------------------- */
