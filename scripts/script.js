@@ -1,6 +1,6 @@
 
 
-let nav_links = document.querySelectorAll(".nav-link");
+let nav_links = document.querySelectorAll(".side-nav li");
 
 
 /* -------------------------------------------------------------------------- */

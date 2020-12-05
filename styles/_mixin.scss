@@ -1,0 +1,26 @@
+@mixin hamburger-lines {
+  position: absolute;
+  right: 0.8rem;
+  height: 0.15rem;
+  transition: 0.4s;
+}
+
+@mixin section-divider {
+  content: "";
+  display: block;
+  height: 100px;
+  transform: translateY(-2px);
+}
+
+@mixin list-reset {
+  padding: 0;
+  li {
+    list-style: none;
+  }
+}
+
+@mixin set-anim-fade($animation, $duration) {
+  animation: $animation $duration ease-in-out;
+  animation-fill-mode: forwards;
+}
+
