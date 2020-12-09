@@ -1,0 +1,145 @@
+/* -------------------------------------------------------------------------- */
+/*                                     Nav                                    */
+/* -------------------------------------------------------------------------- */
+
+.side-nav {
+  position: relative;
+  z-index: 1;
+  font-family: $font-heading;
+
+  ul {
+    width: 100%;
+    @include list-reset;
+  }
+
+  p {
+    font-family: $font-heading;
+  }
+
+  .contact-links {
+    width: 30vh;
+  }
+}
+
+#nav-content {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  @include set-size($side-nav-width, 100vh);
+  padding: 2rem 0;
+  box-shadow: 4px 0px 14px -5px #0000001f;
+  background: $white;
+
+  &.toggle {
+    display: flex;
+    width: 100%;
+  }
+
+  @media (min-width: $desktop-screen-size) {
+    display: flex;
+
+    &.toggle {
+      width: $side-nav-width;
+    }
+  }
+}
+
+.navbar-brand {
+  align-self: center;
+}
+
+.nav-item {
+  display: flex;
+  justify-content: space-between;
+
+  &.active {
+    &::after {
+      background: $green;
+    }
+    .nav-link {
+      font-weight: normal;
+      color: $green;
+    }
+  }
+
+  &:last-child {
+    a {
+      border: none;
+    }
+  }
+
+  &.active {
+    &::after {
+      @include psuedo-element;
+      @include set-size(4px, 50px);
+      align-self: center;
+      border-radius: 4px 0 0 4px;
+    }
+  }
+}
+
+.nav-link {
+  font-size: $font-md;
+  font-weight: lighter;
+  width: calc(100% - 4px);
+  padding: 1rem 0;
+  margin: 0 5%;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  border-bottom: 1px solid $light-grey;
+  color: $dark-blue;
+
+  @media (hover: hover) {
+    &:hover {
+      font-weight: normal;
+      color: $dark-green;
+    }
+  }
+}
+/* -------------------------------------------------------------------------- */
+/*                               Hamburger Menu                               */
+/* -------------------------------------------------------------------------- */
+
+.hamburger {
+  @extend .circle;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+
+  //   hide on deskop
+  @media (min-width: $desktop-screen-size) {
+    display: none;
+  }
+
+  .top-line {
+    @include hamburger-lines;
+    top: 1.15rem;
+    width: 1.5rem;
+  }
+
+  .bottom-line {
+    @include hamburger-lines;
+    bottom: 1.15rem;
+    width: 0.75rem;
+  }
+
+  &.active {
+    .top-line {
+      transform: rotate(-45deg) translate(-4px, 5px);
+    }
+
+    .bottom-line {
+      width: 1.5rem;
+      transform: rotate(45deg) translate(-3px, -3px);
+    }
+  }
+}
+
+@media (min-width: $desktop-screen-size) {
+  main {
+    margin-left: $side-nav-width;
+  }
+}

@@ -342,7 +342,7 @@ function change_menu_tab() {
 /*                               Hamburger Menu                               */
 /* -------------------------------------------------------------------------- */
 
-let hamburger_menu = document.getElementById('hamburger');
+let hamburger_menu = document.querySelector('.hamburger');
 let nav_links_container = document.getElementById('nav-content');
 let body = document.querySelector("body");
 

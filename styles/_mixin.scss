@@ -3,13 +3,24 @@
   right: 0.8rem;
   height: 0.15rem;
   transition: 0.4s;
+  background: $white;
 }
 
-@mixin section-divider {
+@mixin psuedo-element {
   content: "";
   display: block;
+}
+
+@mixin set-size($width, $height) {
+  height: $height;
+  width: $width;
+}
+
+@mixin section-divider($colour) {
+  @include psuedo-element;
   height: 100px;
   transform: translateY(-2px);
+  background: $colour;
 }
 
 @mixin list-reset {
@@ -23,4 +34,3 @@
   animation: $animation $duration ease-in-out;
   animation-fill-mode: forwards;
 }
-

@@ -1,5 +1,7 @@
 @import "mixin";
 @import "variables";
+@import "generic";
+@import "navbar";
 
 /* -------------------------------------------------------------------------- */
 /*                                    Font                                    */
@@ -12,9 +14,9 @@ h2,
   font-family: $font-heading;
 }
 
-p,
-.menu-item {
+p {
   font-family: $font-text;
+  font-size: $font-sm;
 }
 
 .circle {
@@ -22,10 +24,8 @@ p,
 }
 
 .section-heading {
-  font-size: clamp(3rem, 3vw, 4rem);
+  font-size: $font-lg;
 }
-
-/* -------------------------------------------------------------------------- */
 
 /* -------------------------------------------------------------------------- */
 
@@ -37,11 +37,10 @@ p,
 /* -------------------------------------------------------------------------- */
 
 .tab-text h2 {
-  font-size: clamp(1.8rem, 3vw, 2.3rem);
+  font-size: $font-md;
 }
 
 .tab-text p {
-  font-size: clamp(1rem, 3vw, 1.2rem);
   line-height: 2rem;
 }
 
@@ -49,7 +48,7 @@ p,
 
 .menu-tab {
   font-weight: lighter;
-  font-size: clamp(1.3rem, 3vw, 2rem);
+  font-size: $font-md;
 }
 
 .menu-tab.active {
@@ -59,7 +58,7 @@ p,
 /* -------------------------------------------------------------------------- */
 
 #contact-details h2 {
-  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-size: $font-md;
 }
 
 #contact-details i {
@@ -70,33 +69,8 @@ p,
 /*                                   Colour                                   */
 /* -------------------------------------------------------------------------- */
 
-body {
-  background: $white;
-  color: $dark-blue;
-}
-
 .section-heading-bar {
   background: $green;
-}
-
-/* -------------------------------------------------------------------------- */
-
-#nav-content {
-  background: $white;
-}
-
-/* -------------------------------------------------------------------------- */
-
-#hamburger {
-  background: $green;
-}
-
-#hamburger .top-line {
-  background: $white;
-}
-
-#hamburger .bottom-line {
-  background: $white;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -107,31 +81,23 @@ svg path {
 
 .circle {
   background: $green;
-}
 
-.circle i {
-  color: $white;
+  i {
+    color: $white;
+  }
 }
 
 /* -------------------------------------------------------------------------- */
-
-#about-section::before {
-  background: $white;
-}
 
 .dot {
   background: $white;
-}
 
-.dot.active {
-  background: $green;
+  &.active {
+    background: $green;
+  }
 }
 
 /* -------------------------------------------------------------------------- */
-
-#menu-section::before {
-  background: $light-green;
-}
 
 .menu-tab.active {
   color: $green;
@@ -142,10 +108,6 @@ svg path {
 }
 
 /* -------------------------------------------------------------------------- */
-
-#contact-section::before {
-  background: $white;
-}
 
 #opening-hours::before {
   background: $light-grey;
@@ -342,84 +304,15 @@ footer {
 }
 
 /* -------------------------------------------------------------------------- */
-/*                                   Generic                                  */
-/* -------------------------------------------------------------------------- */
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body,
-main {
-  margin: 0;
-}
-
-.container {
-  width: 100%;
-  margin: auto;
-  padding: 1rem;
-}
-
-.section-heading {
-  margin-bottom: 4rem;
-  text-align: center;
-  opacity: 0;
-}
-
-.section-heading-bar {
-  content: "";
-  display: block;
-  height: 0.5rem;
-  width: 0;
-  margin: 4rem auto 5rem;
-  border-radius: 1rem;
-}
-
-.contact-links {
-  display: flex;
-  justify-content: space-around;
-}
-
-.contact-link {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-}
-
-.circle {
-  position: relative;
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  box-shadow: 2px 7px 15px -8px #000000bf;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-
-  @media (hover: hover) {
-    &:hover {
-      transform: scale(1.3);
-    }
-  }
-
-  i {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-}
-
-/* -------------------------------------------------------------------------- */
 /*                          Section Diagonal Divider                          */
 /* -------------------------------------------------------------------------- */
 
 .section {
-  min-height: 100vh;
   overflow: hidden;
+
+  &:not(:first-child) {
+    min-height: 100vh;
+  }
 
   &:nth-child(2) {
     &::before {
@@ -431,7 +324,7 @@ main {
 
     &:not(:first-child) {
       &::before {
-        @include section-divider;
+        @include section-divider($light-green);
         clip-path: polygon(0% 0, 100% 100%, 100% 0%);
       }
     }
@@ -440,145 +333,8 @@ main {
     background: $light-green;
 
     &::before {
-      @include section-divider;
+      @include section-divider($white);
       clip-path: polygon(100% 0, 0 0, 0 100%);
-    }
-  }
-}
-
-/* -------------------------------------------------------------------------- */
-/*                                     Nav                                    */
-/* -------------------------------------------------------------------------- */
-
-.side-nav {
-  position: relative;
-  z-index: 2;
-  font-family: $font-heading;
-
-  ul {
-    width: 100%;
-    @include list-reset;
-
-    li {
-      display: flex;
-      justify-content: space-between;
-
-      &.active {
-        &::after {
-          background: $green;
-        }
-        a {
-          font-weight: normal;
-          color: $green;
-        }
-      }
-
-      a {
-        font-size: 2rem;
-        font-weight: lighter;
-        width: calc(100% - 4px);
-        padding: 1rem 0 1rem calc(10% - 2rem);
-        margin: 0 5%;
-        display: flex;
-        justify-content: center;
-        text-decoration: none;
-        border-bottom: 1px solid $light-grey;
-        color: $dark-blue;
-
-        @media (hover: hover) {
-          &:hover {
-            font-weight: normal;
-            color: $dark-green;
-          }
-        }
-      }
-
-      &:last-child {
-        a {
-          border: none;
-        }
-      }
-
-      &.active {
-        &::after {
-          content: "";
-          display: block;
-          height: 50px;
-          width: 4px;
-          align-self: center;
-          border-radius: 4px 0 0 4px;
-        }
-      }
-    }
-  }
-
-  p {
-    font-family: $font-heading;
-  }
-
-  .contact-links {
-    width: 30vh;
-  }
-}
-
-#nav-content {
-  display: none;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  position: fixed;
-  height: 100vh;
-  width: 380px;
-  padding: 2rem 0 2rem 0;
-  box-shadow: 4px 0px 14px -5px #0000001f;
-
-  &.toggle {
-    display: flex;
-    width: 100%;
-  }
-}
-
-/* -------------------------------------------------------------------------- */
-/*                               Hamburger Menu                               */
-/* -------------------------------------------------------------------------- */
-
-#hamburger {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  border-radius: 50%;
-  height: 3rem;
-  width: 3rem;
-  box-shadow: 2px 7px 15px -8px #000000bf;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-
-  @media (hover: hover) {
-    &:hover {
-      transform: scale(1.1);
-    }
-  }
-
-  .top-line {
-    @include hamburger-lines;
-    top: 1.15rem;
-    width: 1.5rem;
-  }
-
-  .bottom-line {
-    @include hamburger-lines;
-    bottom: 1.15rem;
-    width: 0.75rem;
-  }
-
-  &.active {
-    .top-line {
-      transform: rotate(-45deg) translate(-4px, 5px);
-    }
-
-    .bottom-line {
-      width: 1.5rem;
-      transform: rotate(45deg) translate(-1px, -3px);
     }
   }
 }
@@ -613,10 +369,10 @@ main {
 
 .slideshow-tab {
   display: none;
+  flex-wrap: wrap-reverse;
 
   &.active {
     display: flex;
-    flex-direction: column;
   }
 }
 
@@ -624,18 +380,16 @@ main {
   max-width: 100%;
   height: auto;
   box-shadow: 2px 7px 15px -8px #000000bf;
-  order: 1;
   margin: auto;
   opacity: 0;
 }
 
 .tab-text {
-  order: 2;
   opacity: 0;
 
   p {
     min-height: 12rem;
-    padding-right: 1rem;
+    margin-right: 1rem;
   }
 }
 
@@ -653,11 +407,28 @@ main {
 }
 
 .dot {
-  width: 20px;
-  height: 20px;
+  @include set-size(20px, 20px);
 
   &:nth-child(even) {
     margin: 0 1rem;
+  }
+}
+
+@media (min-width: $desktop-screen-size) {
+  #slideshow-controls {
+    padding: 4rem;
+  }
+
+  .slideshow-tab.active {
+    flex-wrap: nowrap;
+  }
+
+  .tab-picture {
+    transform: perspective(1500px) rotateY(-30deg);
+  }
+
+  .tab-text {
+    align-self: center;
   }
 }
 
@@ -683,7 +454,7 @@ main {
 }
 
 .menu-item {
-  padding: 1rem;
+  padding: 0 1rem;
   display: flex;
   justify-content: space-between;
   opacity: 0;
@@ -703,8 +474,7 @@ main {
 }
 
 .menu-tab-indicator {
-  height: 0.3rem;
-  width: 8%;
+  @include set-size(8%, 0.3rem);
   border-radius: 1rem;
   align-self: end;
   opacity: 0;
@@ -749,8 +519,7 @@ main {
 }
 
 #google-map {
-  width: 100%;
-  height: 400px;
+  @include set-size(100%, 400px);
   border: none;
   margin: 2rem 0rem;
   opacity: 0;
@@ -762,7 +531,7 @@ main {
 
 /* --------------------------------- Tablet --------------------------------- */
 
-@media (min-width: 768px) {
+@media (min-width: $tablet-screen-size) {
   .container {
     max-width: 720px;
   }
@@ -778,45 +547,9 @@ main {
 
 /* --------------------------------- Desktop -------------------------------- */
 
-@media (min-width: 1366px) {
+@media (min-width: $desktop-screen-size) {
   .container {
     max-width: 1140px;
-  }
-
-  #nav-content {
-    display: flex;
-
-    &.toggle {
-      width: 380px;
-    }
-  }
-
-  main {
-    margin-left: 380px;
-  }
-
-  #hamburger {
-    display: none;
-  }
-
-  #slideshow-controls {
-    padding: 4rem;
-  }
-
-  .slideshow-tab.active {
-    flex-direction: row;
-  }
-
-  .tab-picture {
-    max-height: 30%;
-    max-width: 70%;
-    order: 2;
-    transform: perspective(1500px) rotateY(-30deg);
-  }
-
-  .tab-text {
-    order: 1;
-    align-self: center;
   }
 
   #animated-logo {

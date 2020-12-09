@@ -22,23 +22,32 @@
 
 <body>
 
-<!-- ----------------------------------------------------------------------- -->
-<!--                                   Nav                                   -->
-<!-- ----------------------------------------------------------------------- -->
+
+
+
+
+
+
+
+
+
+
+
+<!-- Nav -->
 
   <nav class="side-nav">
 
     <div id="nav-content">
 
       <!-- Logo -->
-      <img src="images/second-slice-logo.png" height="250" width="250" alt="Second Slice Café Logo" />
+      <img class="navbar-brand" src="images/second-slice-logo.png" height="250" width="250" alt="Second Slice Café Logo" />
 
       <!-- Links -->
       <ul>
-        <li class="active"><a href="#home-section">Home</a></li>
-        <li><a href="#about-section">About</a></li>
-        <li><a href="#menu-section">Menu</a></li>
-        <li><a href="#contact-section">Contact</a></li>
+        <li class="nav-item active"><a class="nav-link" href="#home-section">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about-section">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#menu-section">Menu</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact-section">Contact</a></li>
       </ul>
 
       <!-- Social Media Links -->
@@ -48,12 +57,12 @@
       </div>
 
       <!-- Opening Hours -->
-      <p>Open: Monday - Sunday 7am - 4pm</p>
+      <p>Open: Monday - Sunday  7am - 4pm</p>
 
     </div>
 
     <!-- Hamburger Menu -->
-    <div id="hamburger">
+    <div class="hamburger">
       <div class="top-line"></div>
       <div class="bottom-line"></div>
     </div>
@@ -62,9 +71,19 @@
 
   <main>
 
-<!-- ----------------------------------------------------------------------- -->
-<!--                              Home Section                               -->
-<!-- ----------------------------------------------------------------------- -->
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Home Section -->
 
     <div id="home-section" class="section">
 
@@ -84,9 +103,22 @@
       
     </div>
 
-<!-- ----------------------------------------------------------------------- -->
-<!--                              About Section                              -->
-<!-- ----------------------------------------------------------------------- -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- About Section -->
 
     <div id="about-section" class="section">
 
@@ -97,8 +129,7 @@
       <div id="slideshow" class="container">
 
 
-<!-- ---------------------------- Slideshow Tab ---------------------------- -->
-
+        <!-- Slideshow Tab -->
         <div class="slideshow-tab active">
           <div class="tab-text">
 
@@ -120,8 +151,8 @@
         </div>
 
 
-<!-- ---------------------------- Slideshow Tab ---------------------------- -->
 
+        <!-- Slideshow Tab -->
         <div class="slideshow-tab">
           <div class="tab-text">
 
@@ -142,8 +173,9 @@
         </div>
 
 
-<!-- ---------------------------- Slideshow Tab ---------------------------- -->
 
+
+        <!-- Slideshow Tab -->
         <div class="slideshow-tab">
           <div class="tab-text">
 
@@ -164,8 +196,8 @@
         </div>
 
 
-<!-- ------------------------- Slideshow Controls -------------------------- -->
 
+        <!-- Slideshow Controls -->
         <div id="slideshow-controls">
 
           <!-- Previous Button -->
@@ -184,10 +216,10 @@
       </div>
     </div>
 
-<!-- ----------------------------------------------------------------------- -->
-<!--                              Menu Section                               -->
-<!-- ----------------------------------------------------------------------- -->
 
+
+
+    <!-- Menu Section -->
     <div id="menu-section" class="section">
       
       <div class="container">
@@ -196,8 +228,8 @@
         <h1 class="section-heading">Menu</h1>
 
 
-<!-- ------------------------------ Menu Tabs ------------------------------ -->
 
+        <!-- Menu Tabs -->
         <ul id="menu-tabs">
           <li class="menu-tab active">Beverages</li>
           <li class="menu-tab">Snacks</li>
@@ -208,45 +240,45 @@
         <div id="menu">
 
 
-<!-- ------------------------- Beverages Menu List ------------------------- -->
 
+          <!-- Beverages Menu List -->
           <ul class="menu-list active">
-            <li class="menu-item"><span>Black</span><span>$3.00</span></li>
-            <li class="menu-item"><span>Latte</span><span>$3.50</span></li>
-            <li class="menu-item"><span>Cappuccino</span><span>$3.00</span></li>
-            <li class="menu-item"><span>Americano</span><span>$4.00</span></li>
-            <li class="menu-item"><span>Espresso</span><span>$3.00</span></li>
-            <li class="menu-item"><span>Mocha</span><span>$4.50</span></li>
-            <li class="menu-item"><span>Iced Coffee</span><span>$3.50</span></li>
-            <li class="menu-item"><span>Iced Espresso</span><span>$3.00</span></li>
-            <li class="menu-item"><span>Frappuccino</span><span>$4.00</span></li>
+            <li class="menu-item"><p>Black</p><p>$3.00</p></li>
+            <li class="menu-item"><p>Latte</p><p>$3.50</p></li>
+            <li class="menu-item"><p>Cappuccino</p><p>$3.00</p></li>
+            <li class="menu-item"><p>Americano</p><p>$4.00</p></li>
+            <li class="menu-item"><p>Espresso</p><p>$3.00</p></li>
+            <li class="menu-item"><p>Mocha</p><p>$4.50</p></li>
+            <li class="menu-item"><p>Iced Coffee</p><p>$3.50</p></li>
+            <li class="menu-item"><p>Iced Espresso</p><p>$3.00</p></li>
+            <li class="menu-item"><p>Frappuccino</p><p>$4.00</p></li>
           </ul>
 
 
-<!-- -------------------------- Snacks Menu List --------------------------- -->
 
+          <!-- Snacks Menu List -->
           <ul class="menu-list">
-            <li class="menu-item"><span>Spanish Omelet</span><span>$3.50</span></li>
-            <li class="menu-item"><span>French Omelet</span><span>$3.50</span></li>
-            <li class="menu-item"><span>Cheese Puff</span><span>$2.50</span></li>
-            <li class="menu-item"><span>Egg Muffin</span><span>$4.00</span></li>
-            <li class="menu-item"><span>Croissant</span><span>$3.00</span></li>
-            <li class="menu-item"><span>Pancakes & Syrup</span><span>$4.50</span></li>
-            <li class="menu-item"><span>Apple Pie</span><span>$4.00</span></li>
-            <li class="menu-item"><span>Banana Split</span><span>$3.50</span></li>
+            <li class="menu-item"><p>Spanish Omelet</p><p>$3.50</p></li>
+            <li class="menu-item"><p>French Omelet</p><p>$3.50</p></li>
+            <li class="menu-item"><p>Cheese Puff</p><p>$2.50</p></li>
+            <li class="menu-item"><p>Egg Muffin</p><p>$4.00</p></li>
+            <li class="menu-item"><p>Croissant</p><p>$3.00</p></li>
+            <li class="menu-item"><p>Pancakes & Syrup</p><p>$4.50</p></li>
+            <li class="menu-item"><p>Apple Pie</p><p>$4.00</p></li>
+            <li class="menu-item"><p>Banana Split</p><p>$3.50</p></li>
           </ul>
 
 
-<!-- ------------------------ Sandwiches Menu List ------------------------- -->
 
+          <!-- Sandwiches Menu List -->
           <ul class="menu-list">
-            <li class="menu-item"><span>Pesto Egg Salad</span><span>$5.00</span></li>
-            <li class="menu-item"><span>Bacon Toastie</span><span>$3.00</span></li>
-            <li class="menu-item"><span>Cheese & Pickle</span><span>$3.00</span></li>
-            <li class="menu-item"><span>Cream Cheese</span><span>$4.00</span></li>
-            <li class="menu-item"><span>Prawn Salad</span><span>$5.00</span></li>
-            <li class="menu-item"><span>Brie and Ham</span><span>$4.00</span></li>
-            <li class="menu-item"><span>Tuna</span><span>$4.00</span></li>
+            <li class="menu-item"><p>Pesto Egg Salad</p><p>$5.00</p></li>
+            <li class="menu-item"><p>Bacon Toastie</p><p>$3.00</p></li>
+            <li class="menu-item"><p>Cheese & Pickle</p><p>$3.00</p></li>
+            <li class="menu-item"><p>Cream Cheese</p><p>$4.00</p></li>
+            <li class="menu-item"><p>Prawn Salad</p><p>$5.00</p></li>
+            <li class="menu-item"><p>Brie and Ham</p><p>$4.00</p></li>
+            <li class="menu-item"><p>Tuna</p><p>$4.00</p></li>
           </ul>
 
 
@@ -254,10 +286,17 @@
       </div>
     </div>
 
-<!-- ----------------------------------------------------------------------- -->
-<!--                             Contact Section                             -->
-<!-- ----------------------------------------------------------------------- -->
 
+
+
+
+
+
+
+
+
+
+    <!-- Contact Section -->
     <div id="contact-section" class="section">
       <div class="container">
 
@@ -268,20 +307,20 @@
         <div id="contact-details">
 
 
-<!-- ---------------------------- Opening Hours ---------------------------- -->
 
+          <!-- Opening Hours -->
           <div id="opening-hours">
             <i class="fas fa-clock"></i>
             <h2>Open</h2>
-            <p>Monday - Sunday 7am - 4pm</p>
+            <p>Monday - Sunday  7am - 4pm</p>
           </div>
 
           <!-- Divider -->
           <hr />
 
 
-<!-- ------------------------------ Location ------------------------------- -->
 
+          <!-- Location -->
           <div id="location">
             <i class="fas fa-map-marked-alt"></i>
             <h2>Location</h2>
@@ -290,15 +329,15 @@
         </div>
 
 
-<!-- ----------------------------- Google Map ------------------------------ -->
 
+        <!-- Google Map -->
         <iframe id="google-map"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.7274320949455!2d144.99561411584378!3d-37.77298883948533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad6437c76276337%3A0xa63fe21eb45b25f5!2s251%20High%20St%2C%20Northcote%20VIC%203070!5e0!3m2!1sen!2sau!4v1603672567394!5m2!1sen!2sau"
           allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
 
 
-<!-- ---------------------------- Contact Links ---------------------------- -->
 
+        <!-- Contact Links -->
         <div class="contact-links">
 
           <!-- Phone -->
@@ -327,10 +366,10 @@
       </div>
     </div>
 
-<!-- ----------------------------------------------------------------------- -->
-<!--                                 Footer                                  -->
-<!-- ----------------------------------------------------------------------- -->
 
+
+
+    <!-- Footer -->
     <footer>
       <div class="container">
         <hr />
