@@ -70,7 +70,7 @@ body {
           flex-direction: column;
 }
 
-.circle, .hamburger {
+.circle, .hamburger, .carousel-indicator {
   position: relative;
   height: 50px;
   width: 50px;
@@ -83,13 +83,13 @@ body {
 }
 
 @media (hover: hover) {
-  .circle:hover, .hamburger:hover {
+  .circle:hover, .hamburger:hover, .carousel-indicator:hover {
     -webkit-transform: scale(1.2);
             transform: scale(1.2);
   }
 }
 
-.circle i, .hamburger i {
+.circle i, .hamburger i, .carousel-indicator i {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -293,7 +293,7 @@ p {
   font-size: clamp(1rem, 3vw, 1.2rem);
 }
 
-.circle, .hamburger {
+.circle, .hamburger, .carousel-indicator {
   font-size: 1.5rem;
 }
 
@@ -347,23 +347,15 @@ svg path {
   stroke: #a5d8c2;
 }
 
-.circle, .hamburger {
+.circle, .hamburger, .carousel-indicator {
   background: #a5d8c2;
 }
 
-.circle i, .hamburger i {
+.circle i, .hamburger i, .carousel-indicator i {
   color: #fff;
 }
 
 /* -------------------------------------------------------------------------- */
-.dot {
-  background: #fff;
-}
-
-.dot.active {
-  background: #a5d8c2;
-}
-
 /* -------------------------------------------------------------------------- */
 .menu-tab.active {
   color: #a5d8c2;
@@ -392,14 +384,11 @@ footer {
 }
 
 @media (hover: hover) {
-  .circle:hover, .hamburger:hover {
+  .circle:hover, .hamburger:hover, .carousel-indicator:hover {
     background: #84ac9b;
   }
   #hamburger:hover {
     background: #84ac9b;
-  }
-  .dot:hover {
-    background: #a5d8c2;
   }
   .menu-tab:hover {
     color: #84ac9b;
@@ -409,27 +398,6 @@ footer {
 /* -------------------------------------------------------------------------- */
 /*                                  Animation                                 */
 /* -------------------------------------------------------------------------- */
-#slideshow-controls.start {
-  -webkit-animation: fade-up 1.5s ease-in-out;
-          animation: fade-up 1.5s ease-in-out;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-}
-
-.tab-text.start {
-  -webkit-animation: fade-from-left 1.5s ease-in-out;
-          animation: fade-from-left 1.5s ease-in-out;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-}
-
-.tab-picture.start {
-  -webkit-animation: fade-from-right 1.5s ease-in-out;
-          animation: fade-from-right 1.5s ease-in-out;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
-}
-
 /* -------------------------------------------------------------------------- */
 .section-heading-bar.start {
   -webkit-animation: heading 1s ease-in-out 0.7s;
@@ -754,6 +722,13 @@ footer {
   display: flex;
 }
 
+@media (min-width: 1366px) {
+  .slideshow-tab.active {
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+  }
+}
+
 .tab-picture {
   max-width: 100%;
   height: auto;
@@ -763,16 +738,45 @@ footer {
   opacity: 0;
 }
 
-.tab-text {
+@media (min-width: 1366px) {
+  .tab-picture {
+    -webkit-transform: perspective(1500px) rotateY(-30deg);
+            transform: perspective(1500px) rotateY(-30deg);
+  }
+}
+
+.tab-picture.start {
+  -webkit-animation: fade-from-right 1.5s ease-in-out;
+          animation: fade-from-right 1.5s ease-in-out;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.tab-container {
   opacity: 0;
 }
 
-.tab-text p {
+.tab-container.start {
+  -webkit-animation: fade-from-left 1.5s ease-in-out;
+          animation: fade-from-left 1.5s ease-in-out;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@media (min-width: 1366px) {
+  .tab-container {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+}
+
+.tab-description {
   min-height: 12rem;
   margin-right: 1rem;
 }
 
-#slideshow-controls {
+.slideshow-controls {
   padding: 1rem 2rem 4rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -784,7 +788,20 @@ footer {
   opacity: 0;
 }
 
-#dots {
+@media (min-width: 1366px) {
+  .slideshow-controls {
+    padding: 4rem;
+  }
+}
+
+.slideshow-controls.start {
+  -webkit-animation: fade-up 1.5s ease-in-out;
+          animation: fade-up 1.5s ease-in-out;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.carousel-indicators {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -793,32 +810,22 @@ footer {
           align-items: center;
 }
 
-.dot {
+.carousel-indicator {
+  background: #fff;
   height: 20px;
   width: 20px;
 }
 
-.dot:nth-child(even) {
+.carousel-indicator:nth-child(even) {
   margin: 0 1rem;
 }
 
-@media (min-width: 1366px) {
-  #slideshow-controls {
-    padding: 4rem;
-  }
-  .slideshow-tab.active {
-    -ms-flex-wrap: nowrap;
-        flex-wrap: nowrap;
-  }
-  .tab-picture {
-    -webkit-transform: perspective(1500px) rotateY(-30deg);
-            transform: perspective(1500px) rotateY(-30deg);
-  }
-  .tab-text {
-    -ms-flex-item-align: center;
-        -ms-grid-row-align: center;
-        align-self: center;
-  }
+.carousel-indicator.active {
+  background: #a5d8c2;
+}
+
+.carousel-indicator:hover {
+  background: #a5d8c2;
 }
 
 /* -------------------------------------------------------------------------- */

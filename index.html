@@ -122,6 +122,8 @@
 
     <div id="about-section" class="section">
 
+      
+
       <!-- About Section Heading -->
       <h1 class="section-heading">About</h1>
 
@@ -129,15 +131,16 @@
       <div id="slideshow" class="container">
 
 
+
         <!-- Slideshow Tab -->
         <div class="slideshow-tab active">
-          <div class="tab-text">
+          <div class="tab-container">
 
             <!-- Tab Heading -->
-            <h2>Family Owned</h2>
+            <h2 class="tab-heading">Family Owned</h2>
 
             <!-- Tab Text -->
-            <p>
+            <p class="tab-description">
               Second Slice Café is owned and run by husband and wife team,
               Trevor and Naomi. We first opened our doors in 2015 and have
               become a popular spot for coffee and small bites by the
@@ -154,13 +157,13 @@
 
         <!-- Slideshow Tab -->
         <div class="slideshow-tab">
-          <div class="tab-text">
+          <div class="tab-container">
 
             <!-- Tab Heading -->
-            <h2>Zero Waste</h2>
+            <h2 class="tab-heading">Zero Waste</h2>
 
             <!-- Tab Text -->
-            <p>
+            <p class="tab-description">
               We have a zero waste policy. The earth is our home and we should
               make sure to take care of it. Situations such like this can be
               prevented.
@@ -177,13 +180,13 @@
 
         <!-- Slideshow Tab -->
         <div class="slideshow-tab">
-          <div class="tab-text">
+          <div class="tab-container">
 
             <!-- Tab Heading -->
-            <h2>Organic Ingredients</h2>
+            <h2 class="tab-heading">Organic Ingredients</h2>
 
             <!-- Tab Text -->
-            <p>
+            <p class="tab-description">
               We use only organic locally sourced ingredients in all our
               dishes.
             </p>
@@ -198,7 +201,7 @@
 
 
         <!-- Slideshow Controls -->
-        <div id="slideshow-controls">
+        <div class="slideshow-controls">
 
           <!-- Previous Button -->
           <div id="slideshow-previous" class="circle">
@@ -206,7 +209,11 @@
           </div>
 
           <!-- Shows how many images there are with a series of dots. Each can be clicked to show a different tab. Created with JS. -->
-          <div id="dots"></div>
+          <div class="carousel-indicators">
+            <div class="carousel-indicator active" data-slide-to="0"></div>
+            <div class="carousel-indicator" data-slide-to="1"></div>
+            <div class="carousel-indicator" data-slide-to="2"></div>
+          </div>
 
           <!-- Next Button -->
           <div id="slideshow-next" class="circle">

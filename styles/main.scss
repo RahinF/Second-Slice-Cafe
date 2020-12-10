@@ -89,14 +89,6 @@ svg path {
 
 /* -------------------------------------------------------------------------- */
 
-.dot {
-  background: $white;
-
-  &.active {
-    background: $green;
-  }
-}
-
 /* -------------------------------------------------------------------------- */
 
 .menu-tab.active {
@@ -136,10 +128,6 @@ footer {
     background: $dark-green;
   }
 
-  .dot:hover {
-    background: $green;
-  }
-
   .menu-tab:hover {
     color: $dark-green;
   }
@@ -148,21 +136,6 @@ footer {
 /* -------------------------------------------------------------------------- */
 /*                                  Animation                                 */
 /* -------------------------------------------------------------------------- */
-
-#slideshow-controls.start {
-  animation: fade-up 1.5s ease-in-out;
-  animation-fill-mode: forwards;
-}
-
-.tab-text.start {
-  animation: fade-from-left 1.5s ease-in-out;
-  animation-fill-mode: forwards;
-}
-
-.tab-picture.start {
-  animation: fade-from-right 1.5s ease-in-out;
-  animation-fill-mode: forwards;
-}
 
 /* -------------------------------------------------------------------------- */
 
@@ -373,6 +346,10 @@ footer {
 
   &.active {
     display: flex;
+
+    @media (min-width: $desktop-screen-size) {
+      flex-wrap: nowrap;
+    }
   }
 }
 
@@ -382,55 +359,78 @@ footer {
   box-shadow: 2px 7px 15px -8px #000000bf;
   margin: auto;
   opacity: 0;
-}
 
-.tab-text {
-  opacity: 0;
+  @media (min-width: $desktop-screen-size) {
+    transform: perspective(1500px) rotateY(-30deg);
+  }
 
-  p {
-    min-height: 12rem;
-    margin-right: 1rem;
+  &.start {
+    animation: fade-from-right 1.5s ease-in-out;
+    animation-fill-mode: forwards;
   }
 }
 
-#slideshow-controls {
+.tab-container {
+  opacity: 0;
+
+  &.start {
+    animation: fade-from-left 1.5s ease-in-out;
+    animation-fill-mode: forwards;
+  }
+
+  @media (min-width: $desktop-screen-size) {
+    align-self: center;
+  }
+}
+
+.tab-description {
+  min-height: 12rem;
+  margin-right: 1rem;
+}
+
+.slideshow-controls {
   padding: 1rem 2rem 4rem;
   display: flex;
   justify-content: space-between;
   margin: auto;
   opacity: 0;
+
+  @media (min-width: $desktop-screen-size) {
+    padding: 4rem;
+  }
+
+  &.start {
+    animation: fade-up 1.5s ease-in-out;
+    animation-fill-mode: forwards;
+  }
 }
 
-#dots {
+.carousel-indicators {
   display: flex;
   align-items: center;
 }
 
-.dot {
+.carousel-indicator {
+  background: $white;
+  @extend .circle;
   @include set-size(20px, 20px);
 
   &:nth-child(even) {
     margin: 0 1rem;
   }
+
+  &.active {
+    background: $green;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      background: $green;
+    }
 }
 
-@media (min-width: $desktop-screen-size) {
-  #slideshow-controls {
-    padding: 4rem;
-  }
 
-  .slideshow-tab.active {
-    flex-wrap: nowrap;
-  }
 
-  .tab-picture {
-    transform: perspective(1500px) rotateY(-30deg);
-  }
-
-  .tab-text {
-    align-self: center;
-  }
-}
 
 /* -------------------------------------------------------------------------- */
 /*                                Menu Section                                */

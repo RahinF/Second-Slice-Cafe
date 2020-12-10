@@ -72,8 +72,8 @@ function highlight_current_nav_link(current_link) {
 let section_heading_text = document.querySelectorAll(".section-heading");
 let section_heading_bar = document.querySelectorAll(".section-heading-bar");
 
-let slideshow_controls = document.querySelector("#slideshow-controls");
-let slideshow_tab_text = document.querySelector(".slideshow-tab.active .tab-text");
+let slideshow_controls = document.querySelector(".slideshow-controls");
+let slideshow_tab_text = document.querySelector(".slideshow-tab.active .tab-container");
 let slideshow_tab_picture = document.querySelector(".slideshow-tab.active .tab-picture");
 
 let menu_tabs_container = document.querySelector("#menu-tabs");
@@ -202,28 +202,62 @@ let imgIndex = 0;
 
 
 // create slideshow dots
-for (let index = 0; index < image_tabs.length; index++) {
 
-    let dot = document.createElement("div");
-    dot.classList.add('circle', 'dot');
 
-    dot.addEventListener("click", function () {
+
+
+let carousel_indicators = document.querySelectorAll(".carousel-indicator");
+
+carousel_indicators.forEach(carousel_indicator => {
+    carousel_indicator.addEventListener("click", function () {
 
         image_tabs.forEach(tab => { tab.classList.remove("active") });
+
+        let index = this.dataset.slideTo;
+
+
+
+        carousel_initial_fade_anim(index);
+
+
+
+
+
+
 
         image_tabs[index].classList.add("active");
         imgIndex = index;
 
-        change_dot();
+
+        carousel_indicators.forEach(carousel_indicator => {
+            carousel_indicator.classList.remove("active");
+        });
+
+        this.classList.add("active");
+
 
     });
+});
 
-    document.querySelector("#dots").appendChild(dot);
 
+
+
+function carousel_initial_fade_anim(index) {
+    // image tab text is given animation after initial fade in
+    let current_tab_text = image_tabs[index].querySelector('.tab-container');
+    if (!current_tab_text.classList.contains("start")) {
+        current_tab_text.classList.add('start');
+    }
+
+    // image tab picture is given animation after initial fade in
+    let current_tab_picture = image_tabs[index].querySelector('.tab-picture');
+    if (!current_tab_picture.classList.contains("start")) {
+        current_tab_picture.classList.add('start');
+    }
 }
 
-// sets first image 
-document.querySelector(".dot").classList.add("active");
+
+
 
 
 let slideshow_timer = setInterval(next_image, slideshow_delay);
@@ -247,34 +281,20 @@ function next_image() {
     let pos = this.id == slideshow_previous_btn.id ? imgIndex + image_tabs.length - 1 : imgIndex + 1;
     imgIndex = pos % image_tabs.length;
 
-    // image tab text is given animation after initial fade in
-    let current_tab_text = image_tabs[imgIndex].querySelector('.tab-text');
-    if (!current_tab_text.classList.contains("start")) {
-        current_tab_text.classList.add('start');
-    }
 
-    // image tab picture is given animation after initial fade in
-    let current_tab_picture = image_tabs[imgIndex].querySelector('.tab-picture');
-    if (!current_tab_picture.classList.contains("start")) {
-        current_tab_picture.classList.add('start');
-    }
+
+    carousel_initial_fade_anim(imgIndex);
 
 
     image_tabs[imgIndex].classList.add("active");
-    change_dot();
+
+    carousel_indicators.forEach(carousel_indicator => {
+        carousel_indicator.classList.remove("active");
+    });
+    carousel_indicators[imgIndex].classList.add("active");
 }
 
 
-
-
-// dots change to show active image
-function change_dot() {
-    let dots = document.querySelectorAll(".dot");
-
-    dots.forEach(dot => { dot.classList.remove("active") });
-
-    dots[imgIndex].classList.add("active");
-}
 
 slideshow_previous_btn.addEventListener("click", next_image);
 slideshow_next_btn.addEventListener("click", next_image);
